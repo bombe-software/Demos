@@ -29,6 +29,8 @@ export const CALL_PROPUESTA = "call_propuesta";
 export const DELETE_HISTORIAL = "delete_historial";
 export const DELETE_POLITICO = "delete_politico";
 export const DELETE_PROPUESTA = "delete_propuesta";
+export const FETCH_ELECCIONES = "fetch_elecciones";
+export const INSERT_ELECCIONES = "insert_elecciones";
 
 //Constantes de peticiones ajax
 const ROOT_URL = "http://localhost:3000";
@@ -359,6 +361,33 @@ export function deletePolitico(idPolitico, callback) {
   request.then(response => callback(response.data));
   return {
     type: DELETE_POLITICO,
+    payload: request
+  };
+}
+
+
+export function insertElecciones(idUsuario, idPolitico, callback) {
+  const params = {
+    id_usuario: idUsuario,
+    id_politico: idPolitico
+  }
+
+  const request = axios.post(`${ROOT_URL}/insert_elecciones`, params);
+  request.then(response => callback(response.data));
+  return {
+    type: INSERT_ELECCIONES,
+    payload: request
+  };
+}
+
+export function fetchElecciones(idLugar) {
+  const params = {
+    id_lugar: idLugar
+  }
+
+  const request = axios.post(`${ROOT_URL}/get_elecciones`, params);
+  return {
+    type: FETCH_ELECCIONES,
     payload: request
   };
 }
