@@ -153,8 +153,8 @@ class PoliticoForm extends GenericForm {
 
           <div className="level">
             <div className="level-item">
-              <Field name="tipo" component={this.renderRadioGroup}  >
-                <RadioButton value={1} label="Funcionario" /> 
+              <Field name="tipo" component={this.renderRadioGroup}   >
+                <RadioButton value={1} label="Funcionario" checked="checked"/> 
                 <RadioButton value={2} label="Candidato" />
               </Field>
             </div>
@@ -196,6 +196,14 @@ function validate(values) {
   }
 if(/^\s+|\s+$/.test(values.nombre)) {
   errors.nombre = "Escriba un nombre completo válido";
+
+}
+
+if(!values.motivacion_param){
+errors.motivacion_param = "Ingrese una motivación";
+}
+if(/^\s+|\s+$/.test(values.motivacion_param)) {
+  errors.motivacion_param = "Escriba una motivacion válido";
 
 }
    if(!values.partido){

@@ -46,7 +46,7 @@ ReactDOM.render(
         <Switch>         
               <Route path="/recover_pass" component={RecoverPass} />
               <Route path="/moderador" component={Moderador} />
-              <Route path="/admin" component={Administrador} />
+                            <Route path="/admin" component={Administrador} />
               <Route path="/acerca-de" component={AcercaDe} />{/*Completo*/} 
               <Route path="/confirm_email" component={ConfirmEmail} />
               <Route path="/login" component={Login} />{/*Completo*/} 
