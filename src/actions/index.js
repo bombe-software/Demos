@@ -1,4 +1,5 @@
 import axios from "axios";
+import io from 'socket.io-client';
 
 //Constantes de funciones
 export const SIGNUP_USER = "form_signup_user";
@@ -35,6 +36,15 @@ export const INSERT_ELECCIONES = "insert_elecciones";
 //Constantes de peticiones ajax
 const ROOT_URL = "http://localhost:3000";
 const API_KEY = "?key=1234";
+
+//Constantes de socket.io
+const socket = io('http://localhost:3000');
+
+
+//Eventos de socket.io
+socket.on('msg', function(msg){
+  console.log(msg);
+});
 
 //Acciones
 export function signupUser(values, avatar, callback) {
