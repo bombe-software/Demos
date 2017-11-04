@@ -14,7 +14,6 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import WaveBackground from '../../generics/wave_background';
-import AnimatedGradientBackground from '../../generics/animated_gradient_background';
 
 
 class PropuestasForm extends GenericForm {
