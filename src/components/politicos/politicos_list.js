@@ -86,7 +86,7 @@ class PoliticosList extends Component {
                     <p className="has-text-right">
                       <Link to="/crear/politico/" className="button is-success">
                         <i className="fa fa-plus" aria-hidden="true"></i>
-                        &nbsp;&nbsp;&nbsp;Agregar un evento
+                        &nbsp;&nbsp;&nbsp;Agregar un político
                       </Link >
                     </p>
                   </div>

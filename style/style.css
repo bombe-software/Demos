@@ -31,8 +31,8 @@ html, body {
 .wave:nth-of-type(2) {
   background: url(../assets/img/wave-3.svg) repeat-x;
   bottom: -20px;
-  -webkit-animation: wave 40s cubic-bezier(0.36, 0.45, 0.63, 0.53) -20s infinite, swell 7s ease -1.25s infinite;
-          animation: wave 40s cubic-bezier(0.36, 0.45, 0.63, 0.53) -20s infinite, swell 7s ease -1.25s infinite;
+  -webkit-animation: wave 40s cubic-bezier(0.40, 0.45, 0.63, 0.53) -20s infinite, swell 7s ease -1.25s infinite;
+          animation: wave 40s cubic-bezier(0.40, 0.45, 0.63, 0.53) -20s infinite, swell 7s ease -1.25s infinite;
   opacity: 1;
 }
 
@@ -96,7 +96,7 @@ html, body {
 }
 
 .timeline{
-  list-style: none; 
+  list-style: none;
   margin: 0;
   padding: 0;
 }
@@ -129,3 +129,8 @@ html, body {
   position: relative;
 }
 
+.footer a{
+  color: rgba(74, 74, 74, 0.9);
+}
+.footer a:hover{
+  color: #4a4a4a;

@@ -14,6 +14,7 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import WaveBackground from '../../generics/wave_background';
+import AnimatedGradientBackground from '../../generics/animated_gradient_background';
 
 
 class PropuestasForm extends GenericForm {
@@ -83,20 +84,34 @@ class PropuestasForm extends GenericForm {
                   <div className="has-text-centered"><h1 className="title is-3">Crear propuesta</h1></div>
                   <hr />
                   <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-                    <Field name="nombre" component={this.renderTextField} label="Nombre de la propuesta" />
+
+                    <div className="level">
+                      <div className="level-item">
+                        <Field name="nombre" component={this.renderTextField} label="Nombre de la propuesta" />
+                      </div>
+                    </div>
+                    <div className="level">
+                      <div className="level-item">
                     <Field name="descripcion" component={this.renderTextField} label="Descripcion de la propuesta" />
+                    </div></div>
+                    <div className="level">
+                      <div className="level-item">
                     <Field name="categoria" component={this.renderSelectField} label="Selecciona un categoria">
                       {this.renderCategorias(categorias)}
                     </Field>
+                    </div></div>
+                    <div className="level">
+                      <div className="level-item">
                     <button type="submit" className="button is-info">
                       Submit
                     </button>
+                    </div></div>
                   </form>
                 </div>
               </div>
             </div>
           </div>
-        </ section>
+        </section>
       </div>
     );
   }
