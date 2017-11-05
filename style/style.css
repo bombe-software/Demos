@@ -134,3 +134,26 @@ html, body {
 }
 .footer a:hover{
   color: #4a4a4a;
+}
+
+/*Pattern background*/
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
+.animated-background {
+  position: absolute !important;
+  bottom: 0px;
+  width: 100%;
+  height: 1200px;
+  background-image: url(../../assets/img/background-demos-med.png);
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
+  animation: animatedBackground 140s linear infinite;
+}

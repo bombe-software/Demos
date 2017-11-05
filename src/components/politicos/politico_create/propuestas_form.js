@@ -13,7 +13,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
-import WaveBackground from '../../generics/wave_background';
+import AnimatedBackground from '../../generics/animated_background';
 
 
 class PropuestasForm extends GenericForm {
@@ -111,6 +111,7 @@ class PropuestasForm extends GenericForm {
             </div>
           </div>
         </section>
+        <AnimatedBackground />
       </div>
     );
   }

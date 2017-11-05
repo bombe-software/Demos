@@ -14,6 +14,7 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import WaveBackground from '../../generics/wave_background';
+import AnimatedBackground from '../../generics/animated_background';
 
 import { RadioButtonGroup } from 'redux-form-material-ui'
 
@@ -154,7 +155,7 @@ class PoliticoForm extends GenericForm {
           <div className="level">
             <div className="level-item">
               <Field name="tipo" component={this.renderRadioGroup}  >
-                <RadioButton value={1} label="Funcionario" /> 
+                <RadioButton value={1} label="Funcionario" />
                 <RadioButton value={2} label="Candidato" />
               </Field>
             </div>
@@ -182,7 +183,7 @@ class PoliticoForm extends GenericForm {
           </div></div></div>
         </form>
       </div></div></div></div></section>
-      <WaveBackground />
+      <AnimatedBackground />
       </div>
     );
   }

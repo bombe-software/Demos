@@ -12,6 +12,8 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
+import AnimatedBackground from '../../generics/animated_background';
+
 
 class HistorialForm extends GenericForm {
 
@@ -63,14 +65,34 @@ class HistorialForm extends GenericForm {
         >
           The actions in this window were passed in as an array of React objects.
         </Dialog>
+        <section className="hero is-large">
+          <div className="section">
+            <div className="columns">
+              <div className="column is-6-desktop is-8-tablet is-offset-3-desktop is-offset-2-tablet">
+                <div className="box">
+                  <div className="has-text-centered"><h1 className="title is-3">Registrar evento</h1></div>
+                  <hr />
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+        <div className="level">
+          <div className="level-item">
             <Field name="fecha" component={DatePicker} format={null} hintText="Seleccione la fecha"/>
+            </div></div>
+            <div className="level">
+              <div className="level-item">
             <Field name="titulo" component={this.renderTextField} label="Titulo del evento" />
+            </div></div>
+            <div className="level">
+              <div className="level-item">
             <Field name="descripcion" component={this.renderTextField} label="Descripcion del evento" />
+            </div></div>
+            <div className="level">
+              <div className="level-item">
             <button type="submit" className="button is-info">
               Submit
             </button>
+            </div></div>
         </form>
+        </div></div></div></div></section><AnimatedBackground />
       </div>
     );
   }
@@ -87,7 +109,7 @@ if(!values.fecha){
     errors.titulo = "Escriba el título del evento";
   }
 if(values.titulo != undefined){
-    
+
     if(/^\s+|\s+$/.test(values.titulo)) {
   errors.titulo = "Escriba un nombre completo válido";
 }
@@ -111,6 +133,6 @@ function mapStateToProps(state) {
 }
 
 export default reduxForm({
-  form: 'HistorialForm',  
+  form: 'HistorialForm',
   validate
 })(connect(mapStateToProps, { insertHistorial })(HistorialForm));
