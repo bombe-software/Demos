@@ -8,7 +8,6 @@ class Ayuda extends Component{
     this.updateInicioR = this.updateInicioR.bind(this);
     this.updatePeticion = this.updatePeticion.bind(this);
     this.updateInfoUsu = this.updateInfoUsu.bind(this);
-    this.updateAdmin = this.updateAdmin.bind(this);
     this.updateModer = this.updateModer.bind(this);
     this.updateEstad = this.updateEstad.bind(this);
     this.update = this.update.bind(this);
@@ -16,7 +15,18 @@ class Ayuda extends Component{
   renderInicioR() {
     return (
       <div>
-			
+         <div>
+         Inicio <br/>
+         Aquí, usted podrá acceder totalmente al sistema, solamente necesita ingresar su correo electrónico y su contraseña con el que se registró, en caso de olvidar su contraseña, puede pasar a “Recuperar Contraseña”, a un lado del botón de inicio
+         </div>
+         <div>
+         Registro <br/>
+         En este apartado, usted puede crear una cuenta en nuestro sistema, usted podrá participar en las estadísticas del sistema, solamente ingrese sus datos que se le piden, y a continuación, recibirá un correo para confirmar su identidad, después de esto, usted podrá disfrutar de su cuenta Demos.
+         </div>
+         <div>
+         Recuperar Contraseña <br/>
+         Si usted olvidó su contraseña, simplemente ingrese el correo con el que se registró, para recibir un correo con su contraseña.
+         </div>
       </div>
     );
   }
@@ -24,7 +34,15 @@ class Ayuda extends Component{
     renderPeticion() {
     return (
       <div>
-			hola2
+         <div>
+        Solcitud de Moderador <br/>
+        En caso de que usted sea activo en el sistema, podrá obtener una mejor cuenta, con mejores accesos, solamente ingrese a este apartado y seleccione “Solicitud Moderador”, a continuación, ingrese el motivo por el que quiere ser Moderador (Un moderador se encarga de que realicen cambios y se maneje bien el sistema)
+         </div>
+         <div>
+         Peticiones de Cambio <br />
+         Si usted encontró información desactualizada o falsa en el sistema, en este apartado puede realizar un aviso para que se cambie esa información, solamente ingrese la información que se le pide, y a continuación, mande su solicitud, será enviada a los moderadores, quienes revisarán su solicitud.
+         </div>
+
       </div>
     );
   }
@@ -32,34 +50,45 @@ class Ayuda extends Component{
     renderInfoUsu() {
     return (
       <div>
-			hola3
+         <div>
+         Configuración de la cuenta <br/>
+         En este apartado, usted podrá administrar opciones de su cuenta, solamente seleccione el elemento que desee cambiar, se le mostrará una pantalla, en donde le preguntaremos su nuevo cambio y si confirma los cambios.
+         </div>
+         <div>
+         Perfil de Usuario <br />
+         Usted encontrará los datos públicos (Nombre de usuario y fecha de ingreso, etc.) que usted ingresó en el sistema.
+         </div>
       </div>
     );
   }
 
-    renderAdmin() {
-    return (
-      <div>
-			hola4
-      </div>
-    );
-  }
+    renderModer() {
+      return (
+        <div>
+        Moderador <br />
+        Si usted es  Moderador, podrá administrar las solicitudes de cambio de información que realizan, se le mostrará una lista con las solicitudes disponibles, podrá seleccionar una, al hacerlo se le mostrará detalles de esa solicitud, y podrá aceptarla o rechazarla.
+        </div>
+      );
+    }
 
-	  renderModer() {
-	    return (
-	      <div>
-	         hola5
-	      </div>
-	    );
-	  }
-
-	    renderEstad() {
-	    return (
-	      <div>
-	         hola6 
-	      </div>
-	    );
-	  }
+      renderEstad() {
+      return (
+        <div>
+           <div>
+           Elecciones <br/>
+           En este apartado, podrá ver las estadísticas de las elecciones actuales (resultados de encuestas del sistema).
+           </div>
+           <div>
+           Gubernatura <br/>
+           En este apartado, podrá ver las estadísticas del mandato del político ganador actual (resultados de encuestas del sistema).
+           </div>
+           <div>
+           Encuesta <br />
+           En este apartado, usted podrá contestar encuestas, las cuales nos ayudan a realizar estadísticas para nuestro sistema, realizarlas de la mejor manera, significa mucho para nosotros.
+           </div>
+        </div>
+      );
+    }
   
   updateInicioR() {
     this.setState({ type: 'InicioR' });
@@ -69,9 +98,6 @@ class Ayuda extends Component{
   }
   updateInfoUsu() {
     this.setState({ type: 'InfoUsu' });
-  }
-  updateAdmin() {
-    this.setState({ type: 'Admin' });
   }
   updateModer() {
     this.setState({ type: 'Moder' });
@@ -98,12 +124,6 @@ class Ayuda extends Component{
       return (
         <div>
           {this.renderInfoUsu()}
-        </div>
-      );
-    } else if (type == "Admin") {
-      return (
-        <div>
-          {this.renderAdmin()}
         </div>
       );
     } else if (type == "Moder") {
@@ -140,16 +160,13 @@ class Ayuda extends Component{
                     <li className={this.state.type=="InfoUsu" ? 'is-active' : ''}>
                       <a onClick={this.updateInfoUsu}>Información del usuarion</a>
                     </li>
-                    <li className={this.state.type=="Admin" ? 'is-active' : ''}>
-                      <a onClick={this.updateAdmin}>Administrador</a>
-                    </li>
                     <li className={this.state.type=="Moder" ? 'is-active' : ''}>
                       <a onClick={this.updateModer}>Moderador</a>
                     </li>
                     <li className={this.state.type=="Estad" ? 'is-active' : ''}>
                       <a onClick={this.updateEstad}>Estadisticas</a>
                     </li>
-					</ul>
+          </ul>
 
                 <div>
                   {this.update()}
@@ -162,5 +179,5 @@ class Ayuda extends Component{
     );
   }
 }  
-	
+  
 export default Ayuda;

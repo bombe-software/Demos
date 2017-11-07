@@ -204,11 +204,12 @@ function validate(values) {
   }
 
  if(values.curp!= undefined){
-    var ri=/^[a-zA-Z]{1}[aseiouAEIOU]{1}[a-zA-Z]{2}\d{2}[01]{1}\d{1}[123]{1}\d{1}[hmHM]{1}(AS|C|BSCC|CS|C|CL|CM|DF|DG|GT|GR|HG|JCMC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZo|YN|ZS|NE)[^aeiouAEIOU]{3}\d{1}$/
+    var ri=/^([A-Z]{4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM](AS|BC|BS|CC|CL|CM|CS|CH|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[A-Z]{3}[0-9A-Z]\d)$/i
+
 
     if(!ri.test(values.curp)){
 
-      errors.curp = "CURP inválido22"
+      errors.curp = "CURP invalido"
     }
   }
 

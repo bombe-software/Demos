@@ -199,6 +199,14 @@ if(/^\s+|\s+$/.test(values.nombre)) {
   errors.nombre = "Escriba un nombre completo válido";
 
 }
+
+if(!values.motivacion_param){
+errors.motivacion_param = "Ingrese una motivación";
+}
+if(/^\s+|\s+$/.test(values.motivacion_param)) {
+  errors.motivacion_param = "Escriba una motivacion válido";
+
+}
    if(!values.partido){
     errors.partido = "Seleccione el partido";
   }
