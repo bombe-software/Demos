@@ -38,15 +38,51 @@ class Soporte extends GenericForm {
 		socket.emit('msg', { id_destinatario });
 	}
 
+	renderUserMessage(mensaje){
+		return(
+			<div className="level">
+				<div className="level-left">
+				<div className="level-item">
+						<div className="box mensaje mensaje-usuario">
+							{mensaje.mensaje}
+						</div>
+					</div>
+				</div>
+				<div className="level-right">
+				</div>
+			</div>
+			);
+	}
+
+	renderAdminMessage(mensaje){
+		return(
+			<div className="level">
+				<div className="level-left">
+				</div>
+				<div className="level-right">
+				<div className="level-item">
+						<div className="box mensaje mensaje-admin">
+							{mensaje.mensaje}
+						</div>
+					</div>
+				</div>
+			</div>
+			);
+	}
+
   	renderListMensajes(){
 	    let {mensajes} = this.props;
 	    return _.map(mensajes, mensaje => {
 	      return (
 	          <div key={mensaje.id_mensaje}>
-	  			{mensaje.mensaje}
+	          	{mensaje.id_destinatario!=1 ? this.renderUserMessage(mensaje) : this.renderAdminMessage(mensaje)}
 	          </div>
 	      );
 	    });
+	}
+
+	deleteContent(){
+		
 	}
 
 	render(){
@@ -54,7 +90,22 @@ class Soporte extends GenericForm {
 	  	if(JSON.stringify(this.props.user) == '{}'){
 	  		return(
 	  			<div>
-	  				Inicia sesion para acceder
+	  			<div className="hero is-primary is-fullheight">
+					<div className="hero-body">
+						<div className="container">
+							<h1 className="title has-text-centered is-size-2">
+						        Para ingresar a este módulo, necesitas &nbsp;
+						        <Link to="/login" style={{color: '#171717'}}>Iniciar sesión</Link>
+						    </h1>
+						    <br />
+						    <h2 className="subtitle has-text-centered is-size-3 ">
+						        ¿No tienes una cuenta? &nbsp; 
+						        <Link to="/signup" style={{color: '#171717'}}>Regístrate</Link>
+						    </h2>
+
+						</div>
+					</div>
+				</div>
 	  			</div>
 	  		);
 	  	}else{
@@ -62,19 +113,32 @@ class Soporte extends GenericForm {
 			let mensajes = _.toArray(this.props.mensajes);
 			this.state.socket.emit('asociar_id', { id_usuario });
 	  		return(
-			    <div>
-			    	Soporte
-		  			<div>
-		  				{this.renderListMensajes()}
-		  			</div>
-		  			<div>
-			          <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-			          	<Field name="mensaje" component={this.renderTextField} label={""} />
-			            <button>
-			                Submit
-			            </button>
-			          </form>
-		  			</div>
+			    <div className="columns">
+			    	<div className="user-list column is-3-desktop is-2-tablet is-3-widescreen is-offset-2-desktop is-offset-1-tablet is-offset-2-widescreen">
+			    	</div>
+			    	<div className="column is-5-desktop is-6-tablet is-5-widescreen is-12-mobile">
+			    		<div>
+			    		<div className="title">
+				    	Soporte
+				    	</div>
+			  			<div>
+			  			<br/>
+			  				{this.renderListMensajes()}
+			  			</div>
+			  			<br/>
+			  			<hr />
+			  			<div className="level">
+				          <div className="level-item">
+				          	<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+				          	<Field name="mensaje" component={this.renderTextField} label={""} />
+				            <button className="button is-primary" id="inbox" onSubmit={this.deleteContent()}>
+				                Submit
+				            </button>
+				          </form>
+				          </div>
+			  			</div>
+				    </div>
+			    	</div>
 			    </div>
 		    );
 	  	}

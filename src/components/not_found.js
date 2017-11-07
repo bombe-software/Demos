@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 const NotFound = () => (
-	<div className="hero is-info is-fullheight">
+	<div className="hero is-primary is-fullheight">
 		<div className="hero-body">
 			<div className="container">
 				<h1 className="title has-text-centered is-size-2">

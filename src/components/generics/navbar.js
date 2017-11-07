@@ -68,9 +68,9 @@ class Navbar extends Component {
       <div>
         <nav className="navbar is-transparent">
           <div className="navbar-brand">
-            <a className="navbar-item" href="/">
+            <Link className="navbar-item" to="/">
               <img src="../../assets/img/demos_logo_21.png" alt="Demos" width="112" height="28"/>
-            </a>
+            </Link>
 
             <div className="navbar-burger burger" data-target="nav-demos-menu" onClick={this.handleClick}>
               <span></span>

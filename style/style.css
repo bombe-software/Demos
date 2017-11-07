@@ -157,3 +157,24 @@ html, body {
   background-repeat: repeat-x;
   animation: animatedBackground 140s linear infinite;
 }
+
+.mensaje{
+  border: none !important ;
+  box-shadow: none !important;
+  padding: 2px !important;
+  margin: 2px !important;
+  max-width: 16em !important;
+  word-wrap: break-word !important;
+  padding-right: 1em !important;
+  padding-left: 1em !important;
+}
+
+.mensaje-admin{
+  background-color: #5937BF !important;
+  color: #fff !important;
+}
+
+.mensaje-usuario{
+  background-color: #25B98C !important;
+  color: #fff !important;
+}

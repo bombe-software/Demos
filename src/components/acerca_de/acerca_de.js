@@ -7,15 +7,17 @@ class AcercaDe extends Component{
 
  constructor(props) {
     super(props);
-    this.state = { type: 'Infosis'};
+    this.state = { type: 'infosis'};
     this.updateInfosis = this.updateInfosis.bind(this);
     this.updateAyuda = this.updateAyuda.bind(this);
     this.update = this.update.bind(this);
   }
   renderInfosis() {
     return (
-      <div>
-			<Infosis />
+      <div className="section">
+			<div className="container">
+        <Infosis />
+      </div>
       </div>
     );
   }
