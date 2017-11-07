@@ -72,8 +72,8 @@ class Politicos extends Component {
     render() {
         return (
             <div className="section">
-              <div className="columns">
-                  <div className="column is-3-desktop is-offset-2-desktop">
+              <div className="columns mobile">
+                  <div className="column is-3-desktop is-offset-1-desktop is-4-tablet is-offset-1-tablet is-10-mobile is-offset-1-mobile">
                     <aside className="menu">
                       <div>
                           <p className="menu-label">Tipo</p>
@@ -100,7 +100,7 @@ class Politicos extends Component {
                       </div>
                     </aside>
                   </div>
-                  <div className="column is-5-desktop">
+                  <div className="column is-6-desktop is-10-mobile is-offset-1-mobile is-6-tablet">
                     <div key={this.state.id_estado+this.state.id_puesto}>
                         <PoliticosList
                             id_estado = {this.state.id_estado}
@@ -115,7 +115,7 @@ class Politicos extends Component {
     }
 }
 function mapStateToProps(state) {
-    return { 
+    return {
         estados: state.politico.estados
     };
 }

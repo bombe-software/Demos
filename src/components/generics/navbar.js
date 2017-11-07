@@ -22,11 +22,11 @@ class Navbar extends Component {
 
         <div>
           <div className="navbar-item">
-            <Link to="/login" className="navbar-item is-light">
+            <Link to="/login" className="navbar-item is-light" onClick={this.handleClick}>
               Iniciar sesión
             </Link>
 
-            <Link to="/signup" className="navbar-item">
+            <Link to="/signup" className="navbar-item" onClick={this.handleClick}>
               Registro
             </Link >
 
@@ -41,7 +41,7 @@ class Navbar extends Component {
             <div className="navbar-item">
                 <img src={"../../assets/img/"+this.props.user.avatar+".png"} height="28" width="28"/>
               </div>
-              <Link to="/config_cuenta" className="navbar-item is-light">
+              <Link to="/config_cuenta" className="navbar-item is-light" onClick={this.handleClick}>
                 @{this.props.user.nombre_usuario}
               </Link>
             </div>
@@ -83,16 +83,16 @@ class Navbar extends Component {
 
               <div className="navbar-item">
 
-                  <Link to="/elecciones" className="navbar-item">
+                  <Link to="/elecciones" className="navbar-item" onClick={this.handleClick}>
                     Elecciones
                   </Link>
-                  <Link to="/politicos" className="navbar-item">
+                  <Link to="/politicos" className="navbar-item" onClick={this.handleClick}>
                     Politicos
                   </Link>
-                  <Link to="/acerca-de" className="navbar-item">
+                  <Link to="/acerca-de" className="navbar-item" onClick={this.handleClick}>
                     Acerca de
                   </Link>
-                  <Link to="/soporte" className="navbar-item">
+                  <Link to="/soporte" className="navbar-item" onClick={this.handleClick}>
                     Soporte
                   </Link>
                   {this.renderModerador()}

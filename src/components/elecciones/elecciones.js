@@ -96,10 +96,11 @@ class Elecciones extends Component {
     }
 
     render() {
+
         return (
             <div className="section">
               <div className="columns">
-                  <div className="column is-3-desktop is-offset-2-desktop">
+                  <div className="column is-2-desktop is-3-tablet is-10-mobile is-offset-2-desktop is-offset-1-tablet is-offset-1-mobile">
                     <aside className="menu">
                       <div>
                           <p className="menu-label">Region</p>
@@ -114,8 +115,8 @@ class Elecciones extends Component {
                       </div>
                     </aside>
                   </div>
-                  <div className="column is-5-desktop">
-                    <div>
+                  <div className="column is-6-desktop is-7-tablet is-10-mobile is-offset-1-mobile">
+                    <div className="card">
                         {this.renderSection(this.state.id_estado)}
                     </div>
                   </div>
