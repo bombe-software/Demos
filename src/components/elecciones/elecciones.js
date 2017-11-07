@@ -10,7 +10,7 @@ class Elecciones extends Component {
         super(props);
         this.state = {
             id_estado: 33,
-            formActive: true
+            formActive: false
         };
         this.updateSearch = this.updateSearch.bind(this);
         this.renderSection = this.renderSection.bind(this);

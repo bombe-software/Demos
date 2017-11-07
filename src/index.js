@@ -28,9 +28,9 @@ import PropuestasForm from './components/politicos/politico_create/propuestas_fo
 import HistorialForm from './components/politicos/politico_create/historial_form';
 import PoliticoForm from './components/politicos/politico_create/politico_form';
 
-
 //En actual desarrollo
 import Elecciones from './components/elecciones/elecciones';
+import Soporte from './components/soporte/soporte';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
@@ -52,6 +52,7 @@ ReactDOM.render(
               <Route path="/config_cuenta" component={ConfigCuenta} />{/*Completo*/} 
               <Route path="/politicos" component={Politicos} />{/*Completo*/}
               <Route path="/elecciones" component={Elecciones} />
+              <Route path="/soporte" component={Soporte} />
 
 
               <Route path="/politico/:id" component={PoliticoDetail} />{/*Completo*/} 
