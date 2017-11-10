@@ -33,6 +33,7 @@ export const FETCH_ELECCIONES = "fetch_elecciones";
 export const INSERT_ELECCIONES = "insert_elecciones";
 export const FETCH_MENSAJES = "fetch_mensajes";
 export const INSERT_MENSAJES = "insert_mensajes";
+export const FETCH_CONVERSACIONES = "fetch_conversaciones";
 
 //Constantes de peticiones ajax
 const ROOT_URL = "http://localhost:3000";
@@ -394,10 +395,10 @@ export function fetchElecciones(idLugar) {
   };
 }
 
-export function fetchMensajes(idUsuario) {
+export function fetchMensajes(idLocal, idExterno) {
   const params = {
-    id_remitente: idUsuario,
-    id_destinatario:  idUsuario 
+    id_local: idLocal,
+    id_externo: idExterno 
   }
 
   const request = axios.post(`${ROOT_URL}/fetch_mensajes`, params);
@@ -407,7 +408,7 @@ export function fetchMensajes(idUsuario) {
   };
 }
 
-export function insertMensajes(idDestinatario, idRemitente, Mensaje) {
+export function insertMensajes(idDestinatario, idRemitente, Mensaje, callback) {
   const params = {
     id_destinatario: idDestinatario, 
     id_remitente: idRemitente, 
@@ -415,12 +416,26 @@ export function insertMensajes(idDestinatario, idRemitente, Mensaje) {
   }
 
   const request = axios.post(`${ROOT_URL}/insert_mensajes`, params);
+  request.then(response => callback());
+  
   return {
     type: INSERT_MENSAJES,
     payload: request
   };
 }
 
+export function fetchConversaciones(idLocal) {
+  const params = {
+    id_local: idLocal
+  }
+
+  const request = axios.post(`${ROOT_URL}/fetch_conversaciones`, params);
+
+  return {
+    type: FETCH_CONVERSACIONES,
+    payload: request
+  };
+}
 
 
 
