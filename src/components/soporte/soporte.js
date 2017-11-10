@@ -18,7 +18,7 @@ class Soporte extends GenericForm {
 		if(!(JSON.stringify(this.props.user) == '{}')){
 			let {id_usuario} = this.props.user;
 			this.state.socket.emit('asociar_id', { id_usuario });
-		}	
+		}
         this.renderListMensajes = this.renderListMensajes.bind(this);
   	}
 
@@ -36,6 +36,7 @@ class Soporte extends GenericForm {
 		let {id_usuario} = this.props.user;
 		this.props.insertMensajes(id_usuario, id_destinatario, values.mensaje);
 		socket.emit('msg', { id_destinatario });
+		values.mensaje="";
 	}
 
 	renderUserMessage(mensaje){
@@ -81,9 +82,6 @@ class Soporte extends GenericForm {
 	    });
 	}
 
-	deleteContent(){
-		
-	}
 
 	render(){
 		const { handleSubmit } = this.props;
@@ -99,7 +97,7 @@ class Soporte extends GenericForm {
 						    </h1>
 						    <br />
 						    <h2 className="subtitle has-text-centered is-size-3 ">
-						        ¿No tienes una cuenta? &nbsp; 
+						        ¿No tienes una cuenta? &nbsp;
 						        <Link to="/signup" style={{color: '#171717'}}>Regístrate</Link>
 						    </h2>
 
@@ -131,8 +129,9 @@ class Soporte extends GenericForm {
 				          <div className="level-item">
 				          	<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
 				          	<Field name="mensaje" component={this.renderTextField} label={""} />
-				            <button className="button is-primary" id="inbox" onSubmit={this.deleteContent()}>
-				                Submit
+										&nbsp;&nbsp;&nbsp;
+				            <button className="button is-primary" id="inbox">
+				                Enviar
 				            </button>
 				          </form>
 				          </div>
@@ -156,7 +155,7 @@ function validate(values) {
 }
 
 function mapStateToProps(state) {
-    return { 
+    return {
         user: state.user,
         mensajes: state.mensajes
     };
