@@ -10,12 +10,11 @@
     "test:watch": "npm run test -- --watch",
     "postinstall": "webpack -p",
     "dev": "node server.js"
-
   },
   "author": "bombe-software",
   "license": "ISC",
   "devDependencies": {
-      "chai": "^3.5.0",
+    "chai": "^3.5.0",
     "chai-jquery": "^2.0.0",
     "jquery": "^2.2.1",
     "jsdom": "^8.1.0",
@@ -23,7 +22,7 @@
     "react-addons-test-utils": "^0.14.7"
   },
   "dependencies": {
-     "babel-core": "^6.2.1",
+    "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
