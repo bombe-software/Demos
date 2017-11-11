@@ -40,12 +40,11 @@ class PoliticosList extends Component {
   renderListPoliticos(){
     let {politicos} = this.props;
     return _.map(politicos, politico => {
+      console.log(politico);
       return (
           <div key={politico.id_politico}>
               <div className="panel-block">
-                <span className="panel-icon">
-                  <i className="fa fa-user"></i>
-                </span>
+                  <span className="panel-icon"><i className="fa fa-user"></i></span>
                   <Link to={'/politico/'+politico.id_politico} >
                     {politico.nombre}
                   </Link>
@@ -71,13 +70,11 @@ class PoliticosList extends Component {
                   </div>
               </div>
         </div>
-        <div>
-          <div className="panel">
+        <div className="panel">
           <div className="panel-heading">
-            {this.renderTitle()}
+            <h3>{this.renderTitle()}</h3>
           </div>
-          {this.renderListPoliticos()}
-          </div>
+            {this.renderListPoliticos()}
         </div>
       </div>
     )

@@ -6,7 +6,7 @@ import PendientesPoliticos from './pendientes_politicos';
 class Moderador extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       type: 'propuestas'
     };
     this.updatePropuestas = this.updatePropuestas.bind(this);
@@ -50,12 +50,12 @@ class Moderador extends Component {
 
   render() {
     return (
-      <div className="container">
-      <div className="level"></div>
+      <div className="section">
         <div className="columns is-desktop">
-          <div className="column is-6-widescreen is-8-desktop is-10-tablet is-10-mobile is-offset-1-mobile is-offset-1-tablet is-offset-2-desktop is-offset-3-widescreen">
-              
-                <div className="tabs">
+          <div className="column is-8-widescreen is-10-desktop is-10-tablet is-10-mobile is-offset-1-mobile is-offset-1-tablet is-offset-1-desktop is-offset-2-widescreen">
+          <h1 className="is-size-2">Moderador</h1>
+          <hr />
+                <div className="tabs is-medium is-toggle">
                   <ul>
                     <li className={this.state.type=="propuestas" ? 'is-active' : ''}>
                       <a onClick={this.updatePropuestas}>Propuestas</a>

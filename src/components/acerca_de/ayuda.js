@@ -101,7 +101,7 @@ class Ayuda extends Component{
         </div>
       );
     }
-  
+
   updateInicioR() {
     this.setState({ type: 'InicioR' });
   }
@@ -152,15 +152,15 @@ class Ayuda extends Component{
       );
     }
   }
-    
-  
+
+
 
   render() {
     return (
       <div>
       <div className="level"></div>
-        <div className="columns is-desktop ">
-          <div className="column is-3-widescreen is-5-desktop is-12-tablet is-12-mobile">
+        <div className="columns is-desktop">
+          <div className="column is-4-widescreen is-4-desktop is-12-tablet is-12-mobile">
             <div className="panel">
                 <div className="panel-heading">
                   <p>Módulos</p>
@@ -178,7 +178,7 @@ class Ayuda extends Component{
                   </div>
                   <div className="panel-block">
                     <li className={this.state.type=="InfoUsu" ? 'is-active' : ''}>
-                      <a onClick={this.updateInfoUsu}>Información del usuarion</a>
+                      <a onClick={this.updateInfoUsu}>Información del usuario</a>
                     </li>
                   </div>
                   <div className="panel-block">
@@ -195,7 +195,7 @@ class Ayuda extends Component{
 
             </div>
           </div>
-          <div className="column is-offset-1-widescreen is-6-widescreen is-8-desktop is-12-tablet is-12-mobile">
+          <div className="column is-8-widescreen is-8-desktop is-12-tablet is-12-mobile">
 
                 <div>
                   {this.update()}
@@ -207,6 +207,6 @@ class Ayuda extends Component{
         </div>
     );
   }
-}  
-  
+}
+
 export default Ayuda;

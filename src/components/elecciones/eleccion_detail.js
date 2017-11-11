@@ -101,10 +101,6 @@ class EleccionDetail extends Component {
                 <div>
                   <div className="card-content">
                   <div className="title">{this.renderTitle()}</div>
-                      <div className="title">
-                          Elecciones &nbsp;&nbsp;&nbsp;
-                          {console.log(this.props.elecciones)}
-                      </div>
                   </div>
 
                   <div className="card-image">
@@ -124,13 +120,16 @@ class EleccionDetail extends Component {
               <div>
                   <div className="card-content">
                       <div className="title">
-                          Elecciones &nbsp;&nbsp;&nbsp; {this.renderTitle()}
-                          {console.log(this.props.elecciones)}
+                          {this.renderTitle()}
                       </div>
                   </div>
 
-                  <div className="card-content">
-                      <Pie data={data} />
+                  <div className="card-image">
+                      <div className="hero is-small">
+                        <div className="hero-body">
+                          <Pie data={data} />
+                        </div>
+                      </div>
                   </div>
                   <div className="card-content">
                       <br />

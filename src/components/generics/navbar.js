@@ -79,7 +79,7 @@ class Navbar extends Component {
     return (
       //Logo de la navbar
       <div>
-        <nav className="navbar is-transparent">
+        <nav className="navbar is-light">
           <div className="navbar-brand">
             <Link className="navbar-item" to="/">
               <img src="../../assets/img/demos_logo_21.png" alt="Demos" width="112" height="28"/>

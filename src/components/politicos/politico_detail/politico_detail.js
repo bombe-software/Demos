@@ -108,7 +108,7 @@ class PoliticoDetail extends Component {
                                 {this.renderPerfil()}
                                 </div>
                                 <div className="column is-6-fullhd is-9-widescreen is-8-desktop is-12-tablet is-12-mobile">
-                                    <div className="tabs is-medium">
+                                    <div className="tabs is-medium is-boxed">
                                         <ul>
                                             <li className={this.state.type == "propuestas" ? 'is-active' : ''}>
                                                 <a onClick={this.updatePropuestas}>

@@ -26,7 +26,7 @@ class AcercaDe extends Component{
     );
   }
 
-  
+
   updateInfosis() {
     this.setState({ type: 'infosis' });
   }
@@ -50,15 +50,14 @@ class AcercaDe extends Component{
       );
     }
   }
-    
-  
+
+
 
   render() {
     return (
-      <div className="container">
-      <div className="level"></div>
+      <div className="section">
         <div className="columns is-tablet">
-          <div className="column is-10-widescreen is-10-desktop is-10-tablet is-10-mobile is-offset-1-mobile is-offset-1-tablet is-offset-1-desktop is-offset-1-widescreen">
+          <div className="column is-8-widescreen is-10-desktop is-10-tablet is-10-mobile is-offset-1-mobile is-offset-1-tablet is-offset-1-desktop is-offset-2-widescreen">
               <h1 className="is-size-2">Ayuda</h1>
               <hr />
               <Ayuda />
@@ -68,6 +67,6 @@ class AcercaDe extends Component{
       </div>
     );
   }
-}  
-	
+}
+
 export default AcercaDe;
