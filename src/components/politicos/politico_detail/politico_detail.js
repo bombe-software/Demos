@@ -64,7 +64,7 @@ class PoliticoDetail extends Component {
             let {politico} = this.props;
             return(
             <div>
-            
+
                 <div className="card">
                     <div className="card-image">
                       <figure className="image is-1by1">
@@ -81,9 +81,6 @@ class PoliticoDetail extends Component {
                           <p>Experiencia: {politico.fecha_incio_politica}</p>
                           <p>Slogan de campaña: {politico.motivacion}</p>
                       </span>
-                    </div>
-                    <div className="card-footer">
-                        <a className="card-footer-item" href="#" >Proponer edicion</a>
                     </div>
                 </div>
 

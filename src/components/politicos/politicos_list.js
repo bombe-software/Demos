@@ -19,23 +19,17 @@ class PoliticosList extends Component {
     let {id_estado} = this.props;
     if(id_estado == 33){
       return (
-          <nav className="breadcrumb" aria-label="breadcrumbs">
-            <ul>
-              <li key={1}><a href="#" >{this.state.puestos[this.props.id_puesto]}</a></li>
-              <li key={2}><a href="#" >Nacional</a></li>
-            </ul>
-          </nav>
+          <div>
+              <p key={1}>{this.state.puestos[this.props.id_puesto]}&nbsp;/&nbsp;Nacional</p>
+          </div>
       );
     }else{
       return (
-          <nav className="breadcrumb" aria-label="breadcrumbs">
-            <ul>
-              <li key={1}><a href="#" >{this.state.puestos[this.props.id_puesto]}</a></li>
-              <li key={2}><a href="#" >Estatal</a></li>
-              <li key={3}><a href="#" >{this.props.estados[this.props.id_estado].zona}</a></li>
-              <li key={4}><a href="#" >{this.props.estados[this.props.id_estado-1].nombre}</a></li>
-            </ul>
-          </nav>
+            <p>
+              {this.state.puestos[this.props.id_puesto]}&nbsp;/&nbsp;
+              {this.props.estados[this.props.id_estado].zona}&nbsp;/&nbsp;
+              {this.props.estados[this.props.id_estado-1].nombre}
+            </p>
       );
     }
   }
@@ -48,26 +42,14 @@ class PoliticosList extends Component {
     return _.map(politicos, politico => {
       return (
           <div key={politico.id_politico}>
-          <br />
-            <div className="card">
-              <div className="card-content">
-                <div className="media">
-                  <div className="media-left">
-                    <figure className="image is-32x32">
-                      <img src="../../assets/img/politico.png" alt="Placeholder image" />
-                    </figure>
-                  </div>
-                  <div className="media-content">
-                    <p className="title is-4">{politico.nombre}</p>
-                  </div>
-                </div>
+              <div className="panel-block">
+                <span className="panel-icon">
+                  <i className="fa fa-user"></i>
+                </span>
+                  <Link to={'/politico/'+politico.id_politico} >
+                    {politico.nombre}
+                  </Link>
               </div>
-              <div className="card-footer">
-                <div className="card-footer-item">
-                  <Link to={'/politico/'+politico.id_politico} >Ver perfil</Link>
-                </div>
-              </div>
-            </div>
           </div>
       );
     });
@@ -76,9 +58,6 @@ class PoliticosList extends Component {
   render(){
     return(
       <div>
-        <div>
-          {this.renderTitle()}
-        </div>
         <div className="level">
             <div className="level-left"></div>
                 <div className="level-right">
@@ -93,7 +72,12 @@ class PoliticosList extends Component {
               </div>
         </div>
         <div>
+          <div className="panel">
+          <div className="panel-heading">
+            {this.renderTitle()}
+          </div>
           {this.renderListPoliticos()}
+          </div>
         </div>
       </div>
     )

@@ -53,7 +53,7 @@ class Moderador extends Component {
       <div className="container">
       <div className="level"></div>
         <div className="columns is-desktop">
-          <div className="column is-8-widescreen is-10-desktop is-10-tablet is-10-mobile is-offset-1-mobile is-offset-1-tablet is-offset-1-desktop is-offset-2-widescreen">
+          <div className="column is-6-widescreen is-8-desktop is-10-tablet is-10-mobile is-offset-1-mobile is-offset-1-tablet is-offset-2-desktop is-offset-3-widescreen">
               
                 <div className="tabs">
                   <ul>

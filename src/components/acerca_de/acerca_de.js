@@ -14,11 +14,7 @@ class AcercaDe extends Component{
   }
   renderInfosis() {
     return (
-      <div className="section">
-			<div className="container">
         <Infosis />
-      </div>
-      </div>
     );
   }
 
@@ -61,24 +57,11 @@ class AcercaDe extends Component{
     return (
       <div className="container">
       <div className="level"></div>
-        <div className="columns is-desktop">
-          <div className="column is-8-widescreen is-10-desktop is-10-tablet is-10-mobile is-offset-1-mobile is-offset-1-tablet is-offset-1-desktop is-offset-2-widescreen">
-              
-                <div className="tabs">
-                  <ul>
-                    <li className={this.state.type=="infosis" ? 'is-active' : ''}>
-                      <a onClick={this.updateInfosis}>Informacion del sistema</a>
-                    </li>
-                    <li className={this.state.type=="ayuda" ? 'is-active' : ''}>
-                      <a onClick={this.updateAyuda}>Ayuda</a>
-                    </li>
-					</ul>
-                </div>
-
-                <div>
-                  {this.update()}
-              </div>
-
+        <div className="columns is-tablet">
+          <div className="column is-10-widescreen is-10-desktop is-10-tablet is-10-mobile is-offset-1-mobile is-offset-1-tablet is-offset-1-desktop is-offset-1-widescreen">
+              <h1 className="is-size-2">Ayuda</h1>
+              <hr />
+              <Ayuda />
           </div>
         </div>
         <div className="level"><br /><br /></div>

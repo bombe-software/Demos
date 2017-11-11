@@ -30,14 +30,19 @@ class PendientesHistorial extends Component {
     return _.map(historial, evento => {
       return (
         <div key={evento.id_historial}>
-          {evento.id_historial}
-          {evento.nombre}
-          <button onClick = {()=>{this.denegar(evento.id_historial)}}>
-            Denegar
-          </button>
-          <button onClick = {()=>{this.aceptar(evento.id_historial)}}>
-            Aceptar
-          </button>
+         <div className="panel-block">
+            <span className="panel-icon">
+              <a className="is-primary" onClick = {()=>{this.aceptar(evento.id_historial)}}>
+                <i className="fa fa-check"></i>
+              </a> &nbsp;&nbsp;&nbsp;
+            </span>
+            <span className="panel-icon">
+              <a className="is-danger" style={{color: 'red'}} onClick = {()=>{this.denegar(evento.id_historial)}}>
+                <i className="fa fa-times"></i>
+              </a>
+            </span>
+            {evento.nombre}
+         </div>
         </div>
       );
     });
@@ -45,8 +50,8 @@ class PendientesHistorial extends Component {
 
   render() {
     return (
-      <div>
-        Historial
+      <div className="panel">
+        <div className="panel-heading">Historial</div>
         {this.renderList()}
       </div>
     )

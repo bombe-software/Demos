@@ -5,7 +5,10 @@ import { connect } from "react-redux";
 class Navbar extends Component {
   constructor(props) {
     super(props);
-    this.state = {isToggleOn: false};
+    this.state = {
+      isToggleOn: false,
+      isUserSelected: false
+    };
     this.handleClick = this.handleClick.bind(this);
     this.renderNavEnd = this.renderNavEnd.bind(this);
   }
@@ -13,6 +16,12 @@ class Navbar extends Component {
   handleClick() {
     this.setState(prevState => ({
       isToggleOn: !prevState.isToggleOn
+    }));
+  }
+
+  handleClickUser(){
+    this.setState(prevState => ({
+      isUserSelected: !prevState.isUserSelected
     }));
   }
 
@@ -38,12 +47,16 @@ class Navbar extends Component {
           <div>
           <div className="navbar-item">
             <div className="field is-grouped">
-            <div className="navbar-item">
-                <img src={"../../assets/img/"+this.props.user.avatar+".png"} height="28" width="28"/>
+              <div className="navbar-item is-light has-dropdown is-hoverable" onClick={this.handleClick}>
+                <a className="navbar-item">@{this.props.user.nombre_usuario}</a>
+                <div className="navbar-dropdown">
+                  <Link to="/config_cuenta" className="navbar-item">Configuración de la cuenta</Link>
+                  <a className="navbar-item" href="/">Cerrar sesión</a>
+                </div>
               </div>
-              <Link to="/config_cuenta" className="navbar-item is-light" onClick={this.handleClick}>
-                @{this.props.user.nombre_usuario}
-              </Link>
+              <div className="navbar-item">
+                  <img src={"../../assets/img/"+this.props.user.avatar+".png"} height="28" width="28"/>
+                </div>
             </div>
           </div>
           </div>
@@ -56,7 +69,7 @@ class Navbar extends Component {
         return(
             <Link to="/moderador" className="navbar-item">
               Moderador
-            </Link>  
+            </Link>
         );
       }
     }
@@ -72,7 +85,7 @@ class Navbar extends Component {
               <img src="../../assets/img/demos_logo_21.png" alt="Demos" width="112" height="28"/>
             </Link>
 
-            <div className="navbar-burger burger" data-target="nav-demos-menu" onClick={this.handleClick}>
+            <div className={this.state.isToggleOn ? 'navbar-burger burger is-active' : 'navbar-burger burger'} data-target="nav-demos-menu" onClick={this.handleClick}>
               <span></span>
               <span></span>
               <span></span>
@@ -90,7 +103,7 @@ class Navbar extends Component {
                     Politicos
                   </Link>
                   <Link to="/acerca-de" className="navbar-item" onClick={this.handleClick}>
-                    Acerca de
+                    Ayuda
                   </Link>
                   <Link to="/soporte" className="navbar-item" onClick={this.handleClick}>
                     Soporte
