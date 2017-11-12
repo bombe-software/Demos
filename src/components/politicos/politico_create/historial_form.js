@@ -87,6 +87,10 @@ class HistorialForm extends GenericForm {
             </div></div>
             <div className="level">
               <div className="level-item">
+            <Field name="link" component={this.renderTextField} label="Link" />
+            </div></div>
+            <div className="level">
+              <div className="level-item">
             <button type="submit" className="button is-info">
               Submit
             </button>
@@ -111,7 +115,7 @@ if(!values.fecha){
 if(values.titulo != undefined){
 
     if(/^\s+|\s+$/.test(values.titulo)) {
-  errors.titulo = "Escriba un nombre completo válido";
+  errors.titulo = "Escriba un titulo válido";
 }
 
   }
@@ -123,6 +127,18 @@ if(values.titulo != undefined){
   errors.descripcion = "Escriba una descripción válida";
 }
 
+if(!values.link){
+errors.link = "Escriba el link de referenica";
+
+}else  if(values.link != undefined){
+    var re = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,})/;
+    if(/^\s+|\s+$/.test(values.link)) {
+  errors.link = "Link invalido";
+}else
+    if(!re.test(values.link)){
+      errors.link ="Link invalido";
+    }
+  }
   return errors;
 }
 
