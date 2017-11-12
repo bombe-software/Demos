@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 
 import NeedLogin from "./../generics/need_login";
-import ChatCliente from "./chat_cliente";
+import Chat from "./chat";
 import ChatServidor from "./chat_servidor";
 
 class Soporte extends Component {
@@ -15,7 +15,7 @@ class Soporte extends Component {
             if(this.props.user.id_tipo_usuario == '1')
                 return <ChatServidor id_local = {this.props.user.id_usuario} />
             else
-                return <ChatCliente id_local = {this.props.user.id_usuario} />
+                return <Chat id_local = {this.props.user.id_usuario} id_externo = {1} />
         else
             return <NeedLogin />
     }

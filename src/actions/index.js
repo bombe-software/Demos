@@ -39,6 +39,10 @@ export const FETCH_CONVERSACIONES = "fetch_conversaciones";
 const ROOT_URL = "http://localhost:3000";
 const API_KEY = "?key=1234";
 
+
+//Autentificacion
+axios.post(`${ROOT_URL}/signup`, {});
+
 //Acciones
 export function signupUser(values, avatar, callback) {
   const params = {

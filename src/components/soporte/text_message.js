@@ -36,6 +36,11 @@ class TextMessage extends GenericForm {
 function validate(values) {
     const errors = {};
 
+    if(!values.mensaje){
+        errors.mensaje = " " ;  
+
+    }
+
     return errors;
 }
 

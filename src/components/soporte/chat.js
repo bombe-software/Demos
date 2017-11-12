@@ -7,24 +7,35 @@ import TextMessage from "./text_message";
 
 import { fetchMensajes } from "../../actions";
 
-class ChatCliente extends Component {
+class Chat extends Component {
 	constructor(props) {
         super(props);
+        let {id_local, id_externo} = this.props;
         this.state = {
             socket: io('http://localhost:3000'),
-            id_externo: 1
+            id_externo
         };
-        let {id_local} = this.props;
         this.state.socket.emit('asociar_id', { id_usuario: id_local });
         this.handleReloadMessages = this.handleReloadMessages.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.id_externo !== this.state.id_externo) {
+            this.setState({
+                id_externo: nextProps.id_externo
+            });
+            let {id_local, fetchMensajes} = this.props;
+            fetchMensajes(id_local, nextProps.id_externo);  
+        }
     }
     
     componentDidMount(){
         let {id_local, fetchMensajes} = this.props;
         let {id_externo} = this.state;
+        let {handleReloadMessages} = this;
         fetchMensajes(id_local, id_externo);  
         this.state.socket.on('actualizar_msg', function (data) {
-			fetchMensajes(id_local, id_externo);  
+			handleReloadMessages();  
 		});  
     }
     
@@ -38,6 +49,7 @@ class ChatCliente extends Component {
 	render(){
         let {id_local, mensajes} = this.props;
         let {id_externo} = this.state;
+
         return (
             <div>
                 <WindowMessages 
@@ -60,4 +72,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps, { fetchMensajes })(ChatCliente);
+export default connect(mapStateToProps, { fetchMensajes })(Chat);

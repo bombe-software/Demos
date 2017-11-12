@@ -59,8 +59,8 @@ class ConfigForm extends GenericForm {
           <div className="box"> <h1 className="is-size-4">Configura tu cuenta</h1><hr/>
           <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <Field name="usuario" component={this.renderTextField} label="Nombre de usuario:" />
-            <Field name="password" component={this.renderTextField} label="Cree una contraseña:" />
-            <Field name="Rpassword" component={this.renderTextField} label="Repita su contraseña:" />
+            <Field name="password" component={this.renderPasswordField} label="Cree una contraseña:" />
+            <Field name="Rpassword" component={this.renderPasswordField} label="Repita su contraseña:" />
                 <div>
                   <div>
                     <h2 className="is-size-5">Seleccione un avatar</h2>
@@ -114,8 +114,20 @@ function validate(values) {
   if (!values.usuario) {
     errors.usuario = "Escriba su nombre de usuario";
   }
+   if(values.usuario != undefined){
+     var ra = /^[a-z0-9]+$/i;
+    if (!ra.test(values.usuario)) {
+                errors.usuario = "Solo puede contener alfa numericos y sin espacios";
+            }
+          }  
   if (!values.password) {
     errors.password = "Escriba su contraseña";
+  }
+  if(values.password != undefined){
+    var re = /^(?=(?:.*\d){1})(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){1})\S{6,}$/;
+    if(!re.test(values.password)){
+      errors.password ="Min. 6 caractéres, 1 mayuscula, 1 minuscula y sin espacios";
+    }
   }
   if (!values.Rpassword) {
     errors.Rpassword = "Repita su contraseña";
