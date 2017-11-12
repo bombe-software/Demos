@@ -35,7 +35,7 @@ class Perfil extends Component {
                   </div>
                   <div className="media-content">
                     <p className="title is-4">@{user.nombre_usuario}</p>
-                    <p className="subtitle is-6">{user.email}</p>
+                    <p className="subtitle is-7">{user.email}</p>
                   </div>
                 </div>
                   <div className="content">
@@ -48,7 +48,7 @@ class Perfil extends Component {
                 </div>
               </div>
               <div className="column is-8 is-12-mobile">
-              <ConfigForm 
+              <ConfigForm
                 user={this.props.user}
               />
               </div>

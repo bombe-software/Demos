@@ -54,7 +54,7 @@ class ConfigForm extends GenericForm {
   render() {
     const { handleSubmit } = this.props;
     return(
-        
+
           <div className="box"> <h1 className="is-size-4">Configura tu cuenta</h1><hr/>
           <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <div className="level"><div className="level-item">
@@ -101,7 +101,7 @@ class ConfigForm extends GenericForm {
             <div className="level">
               <div className="level-item has-text-centered">
                 <button type="submit" className="button is-primary">
-                  Submit
+                  Cambiar
                 </button>
               </div>
             </div>
@@ -137,4 +137,3 @@ export default reduxForm({
   validate,
   form: "ConfigForm"
 })(connect(null, { update_user })(ConfigForm));
-
