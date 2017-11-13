@@ -191,7 +191,7 @@ function validate(values) {
   if(values.password != undefined){
     var re = /^(?=(?:.*\d){1})(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){1})\S{6,}$/;
     if(!re.test(values.password)){
-      errors.password ="Minimo 6 caracteres, una mayuscula y una minuscula y sin espacios";
+     errors.password ="Min. 6 caractéres, 1 mayuscula, 1 minuscula y sin espacios";
     }
   }
 

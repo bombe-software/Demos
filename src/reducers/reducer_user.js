@@ -5,7 +5,7 @@ export default function(state = {}, action) {
   switch (action.type) {
     case LOGIN_USER:
       //return { ...state, user: action.payload.data[0]};
-      return action.payload.data[0];
+      return  action.payload.data[0];
     default:
       return state;
   }
