@@ -1,5 +1,6 @@
 import axios from "axios";
 
+import Validate from '../seguridad/validate';
 //Constantes de funciones
 export const SIGNUP_USER = "form_signup_user";
 export const LOGIN_USER = "form_login_user";
@@ -39,10 +40,6 @@ export const FETCH_CONVERSACIONES = "fetch_conversaciones";
 const ROOT_URL = "http://localhost:3000";
 const API_KEY = "?key=1234";
 
-
-//Autentificacion
-axios.post(`${ROOT_URL}/signup`, {});
-
 //Acciones
 export function signupUser(values, avatar, callback) {
   const params = {
@@ -69,7 +66,8 @@ export function signupUser(values, avatar, callback) {
 export function loginUser(values, callback) {
   const params = {
     CorreoElectronico: values.user,
-    Contrasena: values.password
+    Contrasena: values.password,
+    Ticket: Validate.solicitud(values.user, '/login', values.password)
   }
 
   const request = axios.post(`${ROOT_URL}/login`, params);

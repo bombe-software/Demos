@@ -77,6 +77,22 @@ class Parseador {
     	return parseInt(n,2).toString(16)
     }
 
+    stringToASCII(n){
+    	var ascii = '';
+    	for (var i = n.length - 1; i >= 0; i--) {
+    		ascii += n.charCodeAt(i)
+    	};
+    	return ascii;
+    }
+
+    stringToASCIICifrado(n, clave, m){
+    	var ascii = '';
+    	for (var i = n.length - 1; i >= 0; i--) {
+    		ascii += (Math.pow(n.charCodeAt(i), clave)%m).toString();
+    	};
+    	return ascii;
+    }
+
 }
 	
 export default Parseador;
