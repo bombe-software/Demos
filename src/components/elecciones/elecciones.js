@@ -99,6 +99,12 @@ class Elecciones extends Component {
 
         return (
             <div className="section">
+            <div className="columns mobile">
+              <div className="column is-offset-1-tablet is-offset-1-mobile is-offset-2-desktop is-10-mobile is-10-tablet is-8-desktop">
+              <h1 className="is-size-2">Elecciones</h1>
+              <hr />
+              </div>
+            </div>
               <div className="columns">
                   <div className="column is-2-desktop is-3-tablet is-10-mobile is-offset-2-desktop is-offset-1-tablet is-offset-1-mobile">
                     <aside className="menu">
@@ -126,7 +132,7 @@ class Elecciones extends Component {
     }
 }
 function mapStateToProps(state) {
-    return { 
+    return {
         estados: state.politico.estados
     };
 }

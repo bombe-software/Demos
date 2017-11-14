@@ -101,6 +101,11 @@ class PropuestasForm extends GenericForm {
                     </div></div>
                     <div className="level">
                       <div className="level-item">
+                    <Field name="link" component={this.renderTextField} label="Link" />
+                    </div></div>
+
+                    <div className="level">
+                      <div className="level-item">
                     <button type="submit" className="button is-info">
                       Submit
                     </button>
@@ -135,6 +140,19 @@ function validate(values) {
   if (!values.categoria) {
     errors.categoria = "Escriba la categoría";
   }
+  if(!values.link){
+errors.link = "Escriba el link de referenica";
+
+}else  if(values.link != undefined){
+    var re = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,})/;
+    if(/^\s+|\s+$/.test(values.link)) {
+  errors.link = "Link invalido";
+}else
+    if(!re.test(values.link)){
+      errors.link ="Link invalido";
+    }
+  }
+  
   return errors;
 }
 

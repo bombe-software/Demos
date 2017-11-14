@@ -73,7 +73,13 @@ class Politicos extends Component {
         return (
             <div className="section">
               <div className="columns mobile">
-                  <div className="column is-3-desktop is-offset-1-desktop is-4-tablet is-offset-1-tablet is-10-mobile is-offset-1-mobile">
+                <div className="column is-offset-1-tablet is-offset-1-mobile is-offset-2-desktop is-10-mobile is-10-tablet is-8-desktop">
+                <h1 className="is-size-2">Políticos</h1>
+                <hr />
+                </div>
+              </div>
+              <div className="columns mobile">
+                  <div className="column is-2-desktop is-offset-2-desktop is-4-tablet is-offset-1-tablet is-10-mobile is-offset-1-mobile">
                     <aside className="menu">
                       <div>
                           <p className="menu-label">Tipo</p>
@@ -102,11 +108,11 @@ class Politicos extends Component {
                   </div>
                   <div className="column is-6-desktop is-10-mobile is-offset-1-mobile is-6-tablet">
                     <div key={this.state.id_estado+this.state.id_puesto}>
-                        <PoliticosList
+                          <PoliticosList
                             id_estado = {this.state.id_estado}
                             estados = {_.values(this.props.estados)}
                             id_puesto = {this.state.id_puesto}
-                        />
+                          />
                     </div>
                   </div>
               </div>

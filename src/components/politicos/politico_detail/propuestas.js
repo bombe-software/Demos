@@ -47,10 +47,10 @@ class Propuestas extends Component {
         return _.map(this.props.propuestas, propuesta => {
             return (
                 <div key={propuesta.id_propuesta}>
-                    <div className="box">
+                    <div className="panel-block">
 
                       <p className="is-size-5">
-                          <a className="has-text-dark">{propuesta.nombre}</a> &nbsp;{" "}&nbsp;<span className="is-size-7 tag is has-text-right">{propuesta.categoria}</span>
+                          <a className="has-text-dark">{propuesta.nombre}</a> &nbsp;{" "}&nbsp;<span className="is-size-7 tag is-light has-text-right">{propuesta.categoria}</span>
                       </p>
                           <div className={tipo!="Funcionario" ? "hidden" : ""}>
                           {user != undefined  && propuestas_like != undefined ?
@@ -58,7 +58,6 @@ class Propuestas extends Component {
                            : console.log('vacio')}
                           </div>
                     </div>
-                    <div className="level"></div>
                 </div>
             );
         });
@@ -83,7 +82,12 @@ class Propuestas extends Component {
                       </div>
                     </div>
                   </div>
-                    {this.renderPropuestaList()}
+                    <div className="panel">
+                      <div className="panel-heading">
+                        Propuestas del político
+                      </div>
+                      {this.renderPropuestaList()}
+                    </div>
                 </div>
             );
         }else{

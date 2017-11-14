@@ -29,13 +29,19 @@ class PendientesPoliticos extends Component {
     return _.map(politicos, politico => {
       return (
         <div key={politico.id_politico}>
-          {politico.id_politico}
-          <button onClick = {()=>{ this.denegar(politico.id_politico)}}>
-            Denegar
-          </button>
-          <button onClick = {()=>{ this.aceptar(politico.id_politico)}}>
-            Aceptar
-          </button>
+         <div className="panel-block">
+            <span className="panel-icon">
+              <a className="is-primary" onClick = {()=>{this.aceptar(politico.id_politico)}}>
+                <i className="fa fa-check"></i>
+              </a> &nbsp;&nbsp;&nbsp;
+            </span>
+            <span className="panel-icon">
+              <a className="is-danger" style={{color: 'red'}} onClick = {()=>{this.denegar(politico.id_politico)}}>
+                <i className="fa fa-times"></i>
+              </a>
+            </span>
+            {politico.nombre}
+         </div>
         </div>
       );
     });
@@ -43,9 +49,9 @@ class PendientesPoliticos extends Component {
 
   render() {
     return (
-      <div>
-        Politicos
-          {this.renderList()}
+      <div className="panel">
+        <div className="panel-heading">Politicos</div>
+        {this.renderList()}
       </div>
     )
   }

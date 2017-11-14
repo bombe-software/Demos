@@ -29,13 +29,19 @@ class PendientesPropuestas extends Component {
     return _.map(propuestas, propuesta => {
       return (
         <div key={propuesta.id_propuesta}>
-          {propuesta.id_propuesta}
-          <button onClick = {()=>{ this.denegar(propuesta.id_propuesta)}}>
-            Denegar
-          </button>
-          <button onClick = {()=>{ this.aceptar(propuesta.id_propuesta)}}>
-            Aceptar
-          </button>
+         <div className="panel-block">
+            <span className="panel-icon">
+              <a className="is-primary" onClick = {()=>{this.aceptar(propuesta.id_propuesta)}}>
+                <i className="fa fa-check"></i>
+              </a> &nbsp;&nbsp;&nbsp;
+            </span>
+            <span className="panel-icon">
+              <a className="is-danger" style={{color: 'red'}} onClick = {()=>{this.denegar(propuesta.id_propuesta)}}>
+                <i className="fa fa-times"></i>
+              </a>
+            </span>
+            {propuesta.nombre}
+         </div>
         </div>
       );
     });
@@ -43,9 +49,9 @@ class PendientesPropuestas extends Component {
 
   render() {
     return (
-      <div>
-        Propuestas
-          {this.renderList()}
+      <div className="panel">
+        <div className="panel-heading">Propuestas</div>
+        {this.renderList()}
       </div>
     )
   }
