@@ -49,7 +49,7 @@ class Navbar extends Component {
             <div className="field is-grouped">
               <div className="navbar-item is-light has-dropdown is-hoverable" onClick={this.handleClick}>
                 <a className="navbar-item">@{this.props.user.nombre_usuario}</a>
-                <div className="navbar-dropdown">
+                <div className="navbar-dropdown is-right">
                   <Link to="/config_cuenta" className="navbar-item">Configuración de la cuenta</Link>
                   <a className="navbar-item" href="/">Cerrar sesión</a>
                 </div>
