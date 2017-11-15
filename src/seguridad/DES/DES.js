@@ -5,8 +5,10 @@ import Parseador from './parseador';
 class DES {
 
     cifrar(cadena, clave) {
-        //let cadenas64 = new Parseador().hexToBin(cadena);
+        let cadenas64 = parseInt(cadena,16).toString(2);
         // console.log("Binario " + cadenas64);
+
+        let Parse = new Parseador().stringToBinary();
 
         let cifradoAnt = this.cifrar_64(cadena, clave);
 

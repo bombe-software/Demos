@@ -12,7 +12,7 @@ class Soporte extends Component {
       
 	render(){
         if(JSON.stringify(this.props.user) != '{}')
-            if(this.props.user.id_tipo_usuario == '1')
+            if(this.props.user.id_tipo_usuario == '3')
                 return <ChatServidor id_local = {this.props.user.id_usuario} />
             else
                 return <Chat id_local = {this.props.user.id_usuario} id_externo = {1} />

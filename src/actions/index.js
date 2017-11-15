@@ -1,6 +1,6 @@
 import axios from "axios";
+import validate from '../seguridad/validate';
 
-import Validate from '../seguridad/validate';
 //Constantes de funciones
 export const SIGNUP_USER = "form_signup_user";
 export const LOGIN_USER = "form_login_user";
@@ -38,9 +38,32 @@ export const FETCH_CONVERSACIONES = "fetch_conversaciones";
 
 //Constantes de peticiones ajax
 const ROOT_URL = "http://localhost:3000";
+const ROOT_SEC = "http://localhost:5000";
 const API_KEY = "?key=1234";
 
 //Acciones
+
+export function loginUser(values, callback) {
+  const params = {
+    CorreoElectronico: values.user,
+    Contrasena: values.password
+  }
+
+  const ticket =  {
+     data: validate.solicitud(params, '/login')
+  };
+
+  axios.post(`${ROOT_SEC}/ticket_controller`, ticket).then(response => console.log(response.data[0]));
+
+
+  const request = axios.post(`${ROOT_URL}/login`, params);
+  request.then(response => callback(response.data));
+  return {
+    type: LOGIN_USER,
+    payload: request
+  };
+}
+
 export function signupUser(values, avatar, callback) {
   const params = {
     NombreUsuario: values.usuario,
@@ -59,21 +82,6 @@ export function signupUser(values, avatar, callback) {
   callback(request);
   return {
     type: SIGNUP_USER,
-    payload: request
-  };
-}
-
-export function loginUser(values, callback) {
-  const params = {
-    CorreoElectronico: values.user,
-    Contrasena: values.password,
-    Ticket: Validate.solicitud(values.user, '/login', values.password)
-  }
-
-  const request = axios.post(`${ROOT_URL}/login`, params);
-  request.then(response => callback(response.data));
-  return {
-    type: LOGIN_USER,
     payload: request
   };
 }
