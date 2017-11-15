@@ -178,3 +178,17 @@ html, body {
   background-color: #25B98C !important;
   color: #fff !important;
 }
+
+.inbox {
+  max-height: 240px;
+  min-height: 240px;
+  overflow-y: scroll;
+  border: 1px solid #E1E1E0;
+  border-radius: 3px;
+}
+
+.user-list{
+  max-height: 240px;
+  min-height: 240px;
+  overflow-y: scroll;
+}

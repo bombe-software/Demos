@@ -12,10 +12,21 @@ class Soporte extends Component {
       
 	render(){
         if(JSON.stringify(this.props.user) != '{}')
-            if(this.props.user.id_tipo_usuario == '1')
-                return <ChatServidor id_local = {this.props.user.id_usuario} />
+            if(this.props.user.id_tipo_usuario == '3')
+                return (<div><ChatServidor id_local = {this.props.user.id_usuario} /><div><br /></div></div>)
             else
-                return <Chat id_local = {this.props.user.id_usuario} id_externo = {1} />
+                return (<div className="columns"><div className="column 
+                        is-offset-1-mobile
+                        is-offset-1-tablet
+                        is-offset-2-desktop
+                        is-offset-3-widescreen
+                        is-8-desktop
+                        is-10-mobile
+                        is-10-tablet
+                        is-6-widescreen">
+                        <Chat id_local = {this.props.user.id_usuario} id_externo = {1} />
+                        </div>
+                        <div><br /></div></div>)
         else
             return <NeedLogin />
     }

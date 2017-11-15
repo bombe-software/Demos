@@ -58,7 +58,7 @@ class WindowMessages extends Component {
 	render(){
 		let {mensajes} = this.props;
         return (
-            <div>
+            <div className="inbox">
 				{this.renderListMessages(mensajes)}
             </div>
         )

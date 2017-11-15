@@ -40,7 +40,7 @@ class Soporte extends GenericForm {
 
 	renderUserMessage(mensaje){
 		return(
-			<div className="level">
+			<div className="level is-mobile">
 				<div className="level-left">
 				<div className="level-item">
 						<div className="box mensaje mensaje-usuario">
@@ -56,7 +56,7 @@ class Soporte extends GenericForm {
 
 	renderAdminMessage(mensaje){
 		return(
-			<div className="level">
+			<div className="level is-mobile">
 				<div className="level-left">
 				</div>
 				<div className="level-right">

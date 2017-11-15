@@ -100,14 +100,12 @@ class PoliticoDetail extends Component {
         return (
             <div>
                 <br/>
-                <div className="container">
-                    <div className="columns is-desktop">
-                        <div className="column is-10 is-10-mobile is-offset-1 is-offset-1-mobile">
+                        <div className="section">
                             <div className="columns is-desktop">
-                                <div className="column is-2-fullhd is-3-widescreen is-4-desktop is-12-tablet is-12-mobile is-offset-2-fullhd">
+                                <div className="column is-3-fullhd is-4-widescreen is-3-desktop is-offset-1-desktop is-12-tablet is-12-mobile is-offset-2-fullhd">
                                 {this.renderPerfil()}
                                 </div>
-                                <div className="column is-6-fullhd is-9-widescreen is-8-desktop is-12-tablet is-12-mobile">
+                                <div className="column is-5-fullhd is-6-widescreen is-6-desktop is-12-tablet is-12-mobile">
                                     <div className="tabs is-medium is-boxed">
                                         <ul>
                                             <li className={this.state.type == "propuestas" ? 'is-active' : ''}>
@@ -133,9 +131,7 @@ class PoliticoDetail extends Component {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        </div>            
                 <br/><br/>
             </div>
 

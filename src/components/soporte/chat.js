@@ -51,16 +51,18 @@ class Chat extends Component {
         let {id_externo} = this.state;
 
         return (
-            <div>
-                <WindowMessages 
-                    id_local = {id_local}
-                    mensajes = {mensajes}
-                />
-                <TextMessage
-                    id_local = {id_local}
-                    id_externo = {id_externo}
-                    handleReloadMessages = {this.handleReloadMessages}
-                />
+            <div className="hero">
+                        <div className="">
+                            <WindowMessages 
+                            id_local = {id_local}
+                            mensajes = {mensajes}
+                        />
+                        <TextMessage
+                            id_local = {id_local}
+                            id_externo = {id_externo}
+                            handleReloadMessages = {this.handleReloadMessages}
+                        />
+                        </div>
             </div>
         )
 	}
