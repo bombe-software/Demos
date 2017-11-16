@@ -16,6 +16,7 @@ class TextMessage extends GenericForm {
         this.props.insertMensajes(id_local, id_externo, values.mensaje, () =>{
             handleReloadMessages();
         });
+       
     }
 
 
