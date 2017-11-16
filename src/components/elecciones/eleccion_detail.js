@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchElecciones } from "../../actions";
 
-import {Pie} from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 
 class EleccionDetail extends Component {
     constructor(props) {
@@ -127,7 +127,7 @@ class EleccionDetail extends Component {
                   <div className="card-image">
                       <div className="hero is-small">
                         <div className="hero-body">
-                          <Pie data={data} />
+                          <Doughnut data={data} />
                         </div>
                       </div>
                   </div>

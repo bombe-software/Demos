@@ -20,7 +20,9 @@ class ChatServidor extends Component {
         return _.map(conversaciones, conversacion => {
             return(
                 <div key={conversacion.id_remitente} onClick={()=>{ this.updateIdExterno(conversacion.id_remitente) }}>
-                    {conversacion.nombre_usuario}
+                    <div className="panel-block">
+                        {conversacion.nombre_usuario}
+                    </div>
                  </div>
             );
         });
@@ -32,9 +34,18 @@ class ChatServidor extends Component {
       
     render(){
         return (
-            <div>
-                {this.listConversaciones(this.props.conversaciones)}
-                <Chat id_local = {this.props.id_local} id_externo = {this.state.id_externo} />
+            <div className="hero">
+                    <div className="columns">
+                        <div className="column is-2-desktop is-4-tablet is-offset-2-desktop is-offset-1-tablet is-10-mobile is-offset-1-mobile">
+                            <div className="panel user-list">
+                                <div className="panel-heading">Usuarios</div>
+                                {this.listConversaciones(this.props.conversaciones)}
+                            </div>
+                        </div>
+                        <div className="column is-6-desktop is-6-tablet is-10-mobile is-offset-1-mobile">
+                            <Chat id_local = {this.props.id_local} id_externo = {this.state.id_externo} />
+                        </div>
+                    </div>
             </div>
         );
     }

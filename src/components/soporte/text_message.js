@@ -23,12 +23,17 @@ class TextMessage extends GenericForm {
         const { handleSubmit } = this.props;
         return (
             <div>
-                <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-                    <Field name="mensaje" component={this.renderTextField} label={""} />
-                    <button className="button is-primary" id="inbox">
-                        Submit
-				    </button>
-                </form>
+                <br />
+                <div className="level">
+                    <div className="level-item">
+                        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+                        <Field name="mensaje" component={this.renderTextField} label={""} />
+                        <button className="button is-primary" id="inbox">
+                            Submit
+                        </button>
+                    </form>
+                    </div>
+                </div>
             </div>
         )
     }
