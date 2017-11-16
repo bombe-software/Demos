@@ -6,8 +6,6 @@ import { connect } from "react-redux";
 class Perfil extends Component {
   constructor(props) {
     super(props);
-    //Usar id para llenar el state
-    console.log(this.props.id);
   }
 
   render() {

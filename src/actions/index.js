@@ -1,9 +1,11 @@
 import axios from "axios";
 import validate from '../seguridad/validate';
+var CryptoJS = require("crypto-js");
 
 //Constantes de funciones
 export const SIGNUP_USER = "form_signup_user";
 export const LOGIN_USER = "form_login_user";
+export const LOAD_USER = "load_user";
 export const CONFIRM_EMAIL = "form_confirm_email";
 export const RECOVER_PASS = "form_recover_pass";
 export const FETCH_CANDIDATO = "fetch_candidato";
@@ -44,22 +46,47 @@ const API_KEY = "?key=1234";
 //Acciones
 
 export function loginUser(values, callback) {
-  const params = {
-    CorreoElectronico: values.user,
-    Contrasena: values.password
-  }
 
-  const ticket =  {
-     data: validate.solicitud(params, '/login')
+  const ticket = {
+    correo_electronico: values.user,
+    route: '/login'
   };
 
-  axios.post(`${ROOT_SEC}/ticket_controller`, ticket).then(response => console.log(response.data[0]));
+  const request = axios.post(`${ROOT_SEC}/ticket_controller`, ticket)
+  request.then(
+    response => {
+      if (response.data != "404") {
+        let bytes = CryptoJS.AES.decrypt(response.data, values.password);
 
+        if (bytes.words[0] == 2065855593) {
+          let decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
 
-  const request = axios.post(`${ROOT_URL}/login`, params);
-  request.then(response => callback(response.data));
+          const params = {
+            correo_electronico: values.user,
+            ticket: decryptedData.ticket
+          }
+          callback(params);
+        }else{
+          callback({ correo_electronico: "404" });
+        }
+      } else {
+        callback({ correo_electronico: "404" });
+      }
+    }
+  );
+
   return {
     type: LOGIN_USER,
+    payload: request
+  };
+}
+
+export function load_user(params, callback) {
+  const request = axios.post(`${ROOT_URL}/login`, params);
+  request.then(response => callback(response.data));
+
+  return {
+    type: LOAD_USER,
     payload: request
   };
 }
@@ -408,7 +435,7 @@ export function fetchElecciones(idLugar) {
 export function fetchMensajes(idLocal, idExterno) {
   const params = {
     id_local: idLocal,
-    id_externo: idExterno 
+    id_externo: idExterno
   }
 
   const request = axios.post(`${ROOT_URL}/fetch_mensajes`, params);
@@ -420,14 +447,14 @@ export function fetchMensajes(idLocal, idExterno) {
 
 export function insertMensajes(idDestinatario, idRemitente, Mensaje, callback) {
   const params = {
-    id_destinatario: idDestinatario, 
-    id_remitente: idRemitente, 
+    id_destinatario: idDestinatario,
+    id_remitente: idRemitente,
     mensaje: Mensaje
   }
 
   const request = axios.post(`${ROOT_URL}/insert_mensajes`, params);
   request.then(response => callback());
-  
+
   return {
     type: INSERT_MENSAJES,
     payload: request

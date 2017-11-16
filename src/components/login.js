@@ -3,7 +3,7 @@ import { Field, reduxForm } from "redux-form";
 import GenericForm from './generics/form';
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { loginUser } from "../actions";
+import { loginUser, load_user } from "../actions";
 import { RadioButton } from 'material-ui/RadioButton';
 import MenuItem from 'material-ui/MenuItem';
 import WaveBackground from './generics/wave_background';
@@ -18,14 +18,16 @@ class Login extends GenericForm {
   }
 
   onSubmit(values) {
-    this.props.loginUser(values, data => {
-      if (data[0] != null) {
-        this.props.history.push("/");
-      }else{
-        this.setState({
-          mensaje: "Usuario o contraseña no coinciden"
-        })
-      }
+    this.props.loginUser(values, params => {
+      this.props.load_user(params, data =>{
+        if (data != 404) {
+          this.props.history.push("/");
+        }else{
+          this.setState({
+            mensaje: "Usuario o contraseña no coinciden"
+          })
+        }
+      })
     });
   }
 
@@ -103,4 +105,4 @@ function mapStateToProps(state) {
 export default reduxForm({
   form: "LoginForm",
   validate
-})(connect(mapStateToProps, { loginUser })(Login));
+})(connect(mapStateToProps, { loginUser, load_user })(Login));
