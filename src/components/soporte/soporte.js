@@ -15,7 +15,8 @@ class Soporte extends Component {
             if(this.props.user.id_tipo_usuario == '3')
                 return (<div><ChatServidor id_local = {this.props.user.id_usuario} /><div><br /></div></div>)
             else
-                return (<div className="columns"><div className="column
+                return (<div className="section">
+                        <div className="columns"><div className="column
                         is-offset-1-mobile
                         is-offset-1-tablet
                         is-offset-2-desktop
@@ -24,9 +25,12 @@ class Soporte extends Component {
                         is-10-mobile
                         is-10-tablet
                         is-6-widescreen">
+                        <h1 className="is-size-2">Soporte</h1>
+                        <hr />
                         <Chat id_local = {this.props.user.id_usuario} id_externo = {1} />
                         </div>
-                        <div><br /></div></div>)
+                        <div><br /></div></div>
+                    </div>)
         else
             return <NeedLogin />
     }

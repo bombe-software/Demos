@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ConfigForm from './config_form';
 import { connect } from "react-redux";
+import NeedLogin from "./../generics/need_login";
 
 
 class Perfil extends Component {
@@ -13,16 +14,14 @@ class Perfil extends Component {
     if(JSON.stringify(user) == '{}'){
       return(
         <div>
-          Inicia sesion para acceder a este modulo
+          <NeedLogin />
         </div>
       );
     }else{
       return (
-        <div className="columns">
-          <div className="column is-8 is-10-mobile is-offset-2 is-offset-1-mobile">
-            <br />
-            <div className="columns">
-              <div className="column is-4 is-12-mobile">
+        <div className="section">
+          <div className="columns">
+          <div className="column is-5-tablet is-4-desktop is-3-widescreen is-3-fullhd is-6-fullhd is-offset-1-desktop is-offset-2-widescreen is-offset-3-fullhd">
                 <div className="card">
                   <div className="card-content">
                     <div className="media">
@@ -44,15 +43,13 @@ class Perfil extends Component {
                   </div>
                   </div>
                 </div>
-              </div>
-              <div className="column is-8 is-12-mobile">
-              <ConfigForm
-                user={this.props.user}
-              />
-              </div>
             </div>
-            <br /><br />
+          <div className="column is-7-tablet is-6-desktop is-5-widescreen is-5-fullhd">
+            <ConfigForm
+              user={this.props.user}
+            />
           </div>
+        </div>
         </div>
       ) ;
   }

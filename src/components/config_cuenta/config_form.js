@@ -54,47 +54,54 @@ class ConfigForm extends GenericForm {
   render() {
     const { handleSubmit } = this.props;
     return(
-      <div className="columns">
-        <div className="column is-8 is-offset-2">
-          <div className="box"> <h1 className="is-size-4">Configura tu cuenta</h1><hr/>
+      <div>
+          <div className="card"><div className="card-content"> <h1 className="is-size-4">Configura tu cuenta</h1><hr/>
           <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+            <div className="level"><div className="level-item">
             <Field name="usuario" component={this.renderTextField} label="Nombre de usuario:" />
+            </div></div>
+
+            <div className="level"><div className="level-item">
             <Field name="password" component={this.renderPasswordField} label="Cree una contraseña:" />
+            </div></div>
+
+            <div className="level"><div className="level-item">
             <Field name="Rpassword" component={this.renderPasswordField} label="Repita su contraseña:" />
+            </div></div>
                 <div>
                   <div>
                     <h2 className="is-size-5">Seleccione un avatar</h2>
                   </div><br/>
                   <div className="level">
-                    <div className="level-item has-text-centered">
+                    <div className="level-item">
                       <label>
                         <input type="radio" name="imagen" />
                         <img src="./assets/img/jaiba.svg" className={this.state.imgAvatar[0] + " image is-64x64"} width="100px" height="100px" onClick={this.updateJaiba}/>
                       </label>
                     </div>
-                    <div className="level-item has-text-centered">
+                      <div className="level-item">
                       <label>
                         <input type="radio" name="imagen" />
                         <img src="./assets/img/anguila.svg" className={this.state.imgAvatar[1] + " image is-64x64"} width="100px" height="100px" onClick={this.updateAnguila}/>
                       </label>
                     </div>
-                    <div className="level-item has-text-centered">
+                    <div className="level-item">
                       <label>
                         <input type="radio" name="imagen" />
                         <img src="./assets/img/chivo.svg" className={this.state.imgAvatar[2] + " image is-64x64"} width="100px" height="100px" onClick={this.updateChivo}/>
                       </label>
                     </div>
-                    <div className="level-item has-text-centered">
+                    <div className="level-item">
                       <label>
                         <input type="radio" name="imagen" />
                         <img src="./assets/img/hedgehog.svg" className={this.state.imgAvatar[3] + " image is-64x64"} width="100px" height="100px" onClick={this.updateErizo}/>
                       </label>
                     </div>
-                  </div>
+                    </div>
                   <br/>
                 </div>
             <div className="level">
-              <div className="level-item has-text-centered">
+              <div className="level-item">
                 <button type="submit" className="button is-primary">
                   Submit
                 </button>
@@ -102,7 +109,7 @@ class ConfigForm extends GenericForm {
             </div>
           </form>
           </div>
-        </div>
+          </div>
       </div>
     );
   }

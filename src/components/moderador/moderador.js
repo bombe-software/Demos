@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import PendientesPropuestas from './pendientes_propuestas';
 import PendientesHistorial from './pendientes_historial';
 import PendientesPoliticos from './pendientes_politicos';
+import NeedLogin from "./../generics/need_login";
 
 class Moderador extends Component {
   constructor(props) {
@@ -49,8 +51,9 @@ class Moderador extends Component {
   }
 
   render() {
-    return (
-      <div className="section">
+    console.log(this.props.user);
+      if(JSON.stringify(this.props.user)!='{}'){
+        return(<div className="section">
         <div className="columns is-desktop">
           <div className="column is-8-widescreen is-10-desktop is-10-tablet is-10-mobile is-offset-1-mobile is-offset-1-tablet is-offset-1-desktop is-offset-2-widescreen">
           <h1 className="is-size-2">Moderador</h1>
@@ -76,9 +79,17 @@ class Moderador extends Component {
           </div>
         </div>
         <div className="level"><br /><br /></div>
-      </div>
-    )
+      </div>)
+      } else {
+        return(<NeedLogin />)
+      }
   }
 }
 
-export default Moderador;
+function mapStateToProps(state) {
+    return {
+        user: state.user
+    };
+}
+
+export default connect(mapStateToProps, null )(Moderador);

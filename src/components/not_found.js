@@ -4,7 +4,7 @@ const NotFound = () => (
 	<div className="hero is-primary is-fullheight">
 		<div className="hero-body">
 			<div className="container">
-				<h1 className="title has-text-centered is-size-2">
+				<h1 className="title has-text-centered is-size-2 is-dark" >
 			        ¯\_(ツ)_/¯
 			    </h1>
 			    <br />
