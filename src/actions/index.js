@@ -103,8 +103,11 @@ export function signupUser(values, avatar, callback) {
 
   }
 
+
   const request = axios
     .post(`${ROOT_URL}/signup`, params);
+
+  axios.post(`${ROOT_URL}/mail`, {correo_electronico: values.email});
 
   callback(request);
   return {
