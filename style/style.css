@@ -192,3 +192,45 @@ html, body {
   min-height: 240px;
   overflow-y: scroll;
 }
+
+
+/* HERO IMAGE BACKGROUND */
+
+.hero-image {
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.img-1{
+  background-image: url("../assets/img/background-demos-med.png");
+}
+
+.img-2{
+  background-image: url("../assets/img/index-img-02.JPEG");
+}
+
+.img-3{
+  background-image: url("../assets/img/index-img-03.JPEG");
+}
+
+.mask {
+    position: relative;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    filter: grayscale(100%);
+}
+
+.img-responsive {
+      display: block; 
+      max-width: 100%;
+      height: auto;
+}
+
+.hover-hero:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+}
