@@ -7,10 +7,23 @@ import { confirmEmail } from "../actions";
 import WaveBackground from './generics/wave_background';
 
 class ConfirmEmail extends GenericForm{
+
+  constructor(props) {
+    super(props);
+    this.state = {
+       mensaje: ''
+    };
+  }
+
   onSubmit(values) {
     this.props.confirmEmail(values, () => {
-      console.log("callback confirmEmail");
-      his.props.history.push("/login");
+      if(values.clave == "61515SMOMS7FR34"){
+        this.props.history.push("/login");
+      }else{
+        this.setState({
+          mensaje: "Clave no coincide"
+        })
+      }
     });
   }
 
@@ -38,7 +51,8 @@ class ConfirmEmail extends GenericForm{
                   </div></div>
 
                   <div className="level">
-                    <div className="level-item">
+                  {this.state.mensaje}
+                  <div className="level-item">
                   <button type="submit" className="button">
                     Ingresar
                   </button>
@@ -58,10 +72,8 @@ class ConfirmEmail extends GenericForm{
 function validate(values) {
   const errors = {};
 
-  
-    var re = /^(?=(?:.*\d){1})(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){1})\S{4}$/;
-    if(!re.test(values.clave)){
-      errors.clave ="Clave inválda";
+    if(values.clave == undefined){
+        errors.clave ="Ingrese la clave";
     }
   
   return errors;
