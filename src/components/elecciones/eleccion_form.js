@@ -19,7 +19,7 @@ class EleccionForm extends Component {
         this.props.fetchPoliticos(1, this.props.id_estado);
         let {id_estado} = this.props;
         this.setState({
-            id_estado 
+            id_estado
         });
     }
 
@@ -27,7 +27,7 @@ class EleccionForm extends Component {
         return(
             ()=>{
                 this.setState({
-                    id_politico_selected: id 
+                    id_politico_selected: id
                 });
             }
         )
@@ -37,7 +37,7 @@ class EleccionForm extends Component {
         if (nextProps.id_estado !== this.state.id_estado) {
             let {id_estado} = this.props;
             this.setState({
-                id_estado 
+                id_estado
             });
             this.props.fetchPoliticos(1, this.props.id_estado);
         }
@@ -68,12 +68,13 @@ class EleccionForm extends Component {
 
     renderListPoliticos(){
         let {politicos} = this.props;
+        let selected = {'border': 'rgba(69, 196, 158, 0.9) solid 2px'}
         return _.map(politicos, politico => {
           return (
-              <div key={politico.id_politico} onClick={this.handlePoliticoSelected(politico.id_politico)}>
+              <div style={{'cursor': 'pointer'}} key={politico.id_politico} onClick={this.handlePoliticoSelected(politico.id_politico)}>
               <br />
-                <div className="card">
-                  <div className="card-content">
+
+                    <div className="box" style={this.state.id_politico_selected == politico.id_politico ? {selected}:{}}>
                     <div className="media">
                       <div className="media-left">
                         <figure className="image is-32x32">
@@ -81,11 +82,13 @@ class EleccionForm extends Component {
                         </figure>
                       </div>
                       <div className="media-content">
-                        <p className="title is-4">{politico.nombre}</p>
+                        <p className="title is-4">{politico.nombre}&nbsp;&nbsp;&nbsp;
+                        </p>
+                        {console.log(politico)}
                       </div>
                     </div>
-                  </div>
-                </div>
+                    </div>
+
               </div>
           );
         });
@@ -95,21 +98,32 @@ class EleccionForm extends Component {
     render() {
         return (
             <div>
-                <div>
-                    {this.renderTitle()}
+                <div className="card-content">
+                    <div className="title">
+                      {this.renderTitle()}
+                    </div>
                 </div>
-                <div>
-                    {this.renderListPoliticos()}
+                  <div className="card-image">
+                    <div className="hero is-small">
+                      <div className="hero-body">
+                        {this.renderListPoliticos()}
+                      </div>
+                    </div>
+                  </div>
+                <div className="level">
+                  <div className="level-item">
+                  <button className="button is-primary" onClick = {this.props.handleForm}>
+                          Enviar respuesta
+                  </button>
+                  </div>
                 </div>
-                <button onClick = {this.props.handleForm}>
-                        Contestar encuesta
-                </button>
+                <br/><br/>
             </div>
         )
     }
 }
 function mapStateToProps(state) {
-    return { 
+    return {
         user: state.user,
         politicos: state.politico.politicos
     };
