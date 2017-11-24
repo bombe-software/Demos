@@ -107,7 +107,7 @@ class PoliticoForm extends GenericForm {
 
     const actions = [
       <FlatButton
-        label="Submit"
+        label="Aceptar"
         primary={true}
         keyboardFocused={false}
         onClick={this.handleClose}
@@ -117,13 +117,13 @@ class PoliticoForm extends GenericForm {
     return (
       <div><section className="hero is-large">
         <Dialog
-          title="Dialog With Actions"
+          title="El político ahora está en espera de aprobación"
           actions={actions}
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
-          The actions in this window were passed in as an array of React objects.
+          Espera la aprobación de un moderador de tu propuesta de político
         </Dialog>
 
       <div className="section">

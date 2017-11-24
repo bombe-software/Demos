@@ -57,13 +57,13 @@ class HistorialForm extends GenericForm {
     return (
       <div>
         <Dialog
-          title="Dialog With Actions"
+          title="El evento ahora está en espera de aprobación"
           actions={actions}
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
-          The actions in this window were passed in as an array of React objects.
+          Espera la aprobación de un moderador de tu propuesta del evento
         </Dialog>
         <section className="hero is-large">
           <div className="section">

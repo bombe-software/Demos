@@ -72,8 +72,14 @@ class PropuestasForm extends GenericForm {
 
     return (
       <div>
-        <Dialog title="Dialog With Actions" actions={actions} modal={false} open={this.state.open} onRequestClose={this.handleClose}>
-          The actions in this window were passed in as an array of React objects.
+        <Dialog
+          title="La propuesta ahora está en espera de aprobación"
+          actions={actions}
+          modal={false}
+          open={this.state.open}
+          onRequestClose={this.handleClose}
+        >
+          Espera la aprobación de un moderador de tu propuesta de propuesta política
         </Dialog>
         <section className="hero is-large">
           <div className="section">
