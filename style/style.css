@@ -197,15 +197,15 @@ html, body {
 /* HERO IMAGE BACKGROUND */
 
 .hero-image {
-  height: 400px;
-  background-position: center;
+  height: inherit;
+  background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
 }
 
 .img-1{
-  background-image: url("../assets/img/background-demos-med.png");
+  background-image: url("../assets/img/index-img-01.jpg");
 }
 
 .img-2{
@@ -226,7 +226,7 @@ html, body {
 }
 
 .img-responsive {
-      display: block; 
+      display: block;
       max-width: 100%;
       height: auto;
 }
