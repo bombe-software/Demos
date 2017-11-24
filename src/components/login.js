@@ -58,12 +58,17 @@ class Login extends GenericForm {
                   ¿Olvidaste tu contraseña? &nbsp; <Link to="/recover_pass" > Recuperar </Link>
                 </div>
               </div>
-            
+              <div className="level">
+                <div className="level-item">
+                  ¿No tienes una cuenta Demos? &nbsp; <Link to="/signin" > Registrate </Link>
+                </div>
+              </div>
+
             <div className="level">
               {this.state.mensaje}
               <div className="level-item has-text-centered">
-                <button type="submit" className="button is-info">
-                  Submit
+                <button type="submit" className="button is-primary">
+                  Ingresar
                 </button>
               </div>
             </div>

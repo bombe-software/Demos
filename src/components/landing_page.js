@@ -9,7 +9,7 @@ class LandingPage extends Component {
   renderSignUp(){
     if(JSON.stringify(this.props.user) == '{}'){
         return(
-            <Link to="/login">
+            <Link to="/signup">
               <button className="button button-large is-primary">
                 Únete a Demos
               </button>
