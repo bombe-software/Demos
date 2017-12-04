@@ -8,7 +8,7 @@ export default function (state = {}, action) {
       if (action.payload.data == 404) {
         return {};
       } else {
-        console.log(action.payload.data);
+        //console.log(action.payload.data);
         return action.payload.data;
       }
     default:
