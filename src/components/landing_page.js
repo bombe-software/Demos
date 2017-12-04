@@ -2,7 +2,7 @@ import Navbar from "./generics/navbar";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import {Doughnut} from 'react-chartjs-2';
+import RC2,  {Doughnut, Bar, Line, Pie} from 'react-chartjs-2';
 
 class LandingPage extends Component {
 
@@ -18,28 +18,53 @@ class LandingPage extends Component {
     }
   }
 
-  render() {
-
-    let data = {
-  		labels: [
-  			'Jesús Medina',
-  			'Mariana Benítez',
-  			'Juan Pérez'
-  		],
-  		datasets: [{
-  			data: [300, 50, 100],
-  			backgroundColor: [
+  generateData(names){
+    return {
+      labels: names,
+      datasets: [{
+        data: [120, 230, 140, 300, 0],
+        backgroundColor: [
           'rgba(69, 196, 158, 0.9)',
           'rgba(115, 86, 201, 0.9)',
           'rgba(234, 83, 136, 0.9)'
-  			],
-  			hoverBackgroundColor: [
+        ],
+        hoverBackgroundColor: [
           'rgba(69, 196, 158, 1)',
           'rgba(115, 86, 201, 1)',
           'rgba(234, 83, 136, 1)'
-  			]
-  		}]
-  	};
+        ]
+      }]
+    };
+  }
+
+  render() {
+
+    let names = [
+      'Jesús Medina',
+      'Mariana Benítez',
+      'Juan Pérez'
+    ];
+
+    let categories = [
+      'Seguridad',
+      'Recreación',
+      'Salud'
+    ];
+
+    let estados = [
+      'CDMX',
+      'Vecacruz',
+      'Hidalgo',
+      'Estado de México'
+    ];
+
+    let partidos = [
+      'PRI',
+      'PAN',
+      'PRD',
+      'MORENA'
+    ];
+
 
     return (
       <div>
@@ -60,7 +85,7 @@ class LandingPage extends Component {
       		</div>
 
 
-          <div className="hero is-medium">
+          <div className="hero is-medium is-light">
             <div className="hero-body">
               <div className="container">
                 <div className="columns">
@@ -78,56 +103,92 @@ class LandingPage extends Component {
             </div>
           </div>
 
+          <div className="hero is-medium">
+            <div className="hero-body">
+              <div className="container">
+                <div className="columns">
+                  <div className="column">
+                    <p className="is-size-1">Demos es acerca de información, y la mostramos así:</p>
+                  </div>
+                </div>
+                <br/><br/>
+                <div className="columns">
+                  <div className="column is-4">
+                    <p className="is-size-3">Tendencias en categorias de propuestas</p>
+                  </div>
+                  <div className="column is-8">
+
+
+                    <Bar data={this.generateData(categories)}/>
+
+
+                  </div>
+                </div>
+                <br/><br/>
+                <div className="columns">
+                  <div className="column is-8">
+
+                    <Line data={this.generateData(estados)}/>
+
+                  </div>
+                  <div className="column is-4">
+                    <p className="is-size-3">Estados más participativos</p>
+                  </div>
+                </div>
+                <br/><br/>
+                <div className="columns">
+                  <div className="column is-4">
+                    <p className="is-size-3">Tendencia de preferencias por partido</p>
+                  </div>
+                  <div className="column is-8">
+
+                    <Pie data={this.generateData(partidos)}/>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
 
           <div className="hero is-small is-light">
           <div className="hero-body">
             <div className="container">
               <div className="columns">
                 <div className="column has-text-centered">
+                  <br />
                   <p className="is-size-1">Investiga a fondo a cada político</p>
                 </div>
               </div>
             </div>
             <br /><br />
-            <div className="container">
-              <div className="columns is-mobile">
-                <div className="column is-2 is-2-mobile is-offset-5 is-offset-5-mobile has-text-centered">
-                  <div className="image is-128x128">
-                  <img className="is-64x64" src="../assets/img/politician.png" alt="Político" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <br />
+
             <div className="container">
               <div className="columns">
 
-                <div className="column is-4 has-text-centered">
+              <div className="column is-3 has-text-centered">
+                <img className="is-squared" src="../assets/img/politician.png" alt="Político" />
+              </div>
+
+                <div className="column is-8  is-offset-1 has-text-left">
                   <p className="is-size-2">Propuestas</p>
 
                   <p className="is-size-5">
                     Enlista todos las propuestas que el político ha realizado
                     durante su campaña
                   </p>
-                </div>
 
-                <div className="column is-4 has-text-centered">
+                  <br />
+
                   <p className="is-size-2">Historial</p>
 
-                  <p className="is-size-5">
+                  <p className="is-size-5 ">
                     Navega a través de una línea del tiempo que recuenta
                     todos los hechos y eventos importantes de la carrera
                     del político
                   </p>
-                </div>
 
-                <div className="column is-4 has-text-centered">
-                  <p className="is-size-2">Perfil</p>
-
-                  <p className="is-size-5">
-                    Visualiza los datos más importantes del político, como su nombre y
-                    partido
-                  </p>
                 </div>
 
               </div>
@@ -151,7 +212,7 @@ class LandingPage extends Component {
                 </div>
                 <br /><br /><br />
                 <div className="column is-8-desktop is-12-tablet">
-                  <Doughnut data={data} />
+                  <Doughnut data={this.generateData(names)} />
                 </div>
               </div>
             </div>
