@@ -16,8 +16,8 @@ class ConfirmEmail extends GenericForm{
   }
 
   onSubmit(values) {
-    this.props.confirmEmail(values, () => {
-      if(values.clave == "61515SMOMS7FR34"){
+    this.props.confirmEmail(values, response => {
+      if(response.data.mensaje == "Todo bien"){
         this.props.history.push("/login");
       }else{
         this.setState({
@@ -41,7 +41,13 @@ class ConfirmEmail extends GenericForm{
                   
                   <div className="level">
                     <div className="level-item">
-                    <Field name="clave" component={this.renderPasswordField} label="Clave:" />
+                    <Field name="email" component={this.renderTextField} label="Email:" />
+                    </div>
+                  </div>
+
+                  <div className="level">
+                    <div className="level-item">
+                    <Field name="firma" component={this.renderTextField} label="Clave:" />
                     </div>
                   </div>
 

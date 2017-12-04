@@ -104,10 +104,14 @@ export function signupUser(values, avatar, callback) {
   }
 
 
-  const request = axios
-    .post(`${ROOT_URL}/signup`, params);
+  const request = axios.post(`${ROOT_URL}/signup`, params)
+  .then((response)=>{
+    axios.post(`${ROOT_URL}/mail`, {
+      id_usuario: response.data.id_usuario,
+      correo_electronico: values.email
+    });
+  });
 
-  axios.post(`${ROOT_URL}/mail`, {correo_electronico: values.email});
 
   callback(request);
   return {
@@ -117,9 +121,12 @@ export function signupUser(values, avatar, callback) {
 }
 
 export function confirmEmail(values, callback) {
-  console.log(values);
-  let request = CONFIRM_EMAIL;
-  callback();
+  let request = axios.post(`${ROOT_URL}/confirmar_usuario`, {
+    firma: values.firma,
+    email: values.email
+  });
+
+  request.then(response => callback(response));
   return {
     type: CONFIRM_EMAIL,
     payload: request
