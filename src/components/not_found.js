@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+
+
 const NotFound = () => (
 	<div className="hero is-primary is-fullheight">
 		<div className="hero-body">

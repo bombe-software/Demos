@@ -6,6 +6,15 @@ import { connect } from "react-redux";
 import { recoverPass } from "../actions";
 import WaveBackground from './generics/wave_background';
 
+
+/**
+* @class SignUp
+* @author Vicroni <drasa_tec@hotmail.com>
+* @author Someone <none>
+* @version  1.0 <10/12/17>
+* @description: 
+* El objetivo de la clase es  
+*/
 class RecoverPass extends GenericForm{
   onSubmit(values) {
     this.props.recoverPass(values, () => {
