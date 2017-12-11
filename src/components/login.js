@@ -8,8 +8,22 @@ import { RadioButton } from 'material-ui/RadioButton';
 import MenuItem from 'material-ui/MenuItem';
 import WaveBackground from './generics/wave_background';
 
-class Login extends GenericForm {
 
+/**
+* @class Login
+* @author MedinaVilla <net_medina@hotmail.com>
+* @author Someone <none>
+* @version  1.0 <11/12/17>
+* @description: 
+* El objetivo de la clase es permitir el acceso a difrentes servicios a 
+todos aquellos usuarios que tenga un registro en el sistema.
+*/
+class Login extends GenericForm {
+/**
+   * Inicializa el state en donde se desplegara el mensaje de error
+   * en caso de que el email y contrasena no concida o no exista el registro.
+   * @constructor
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -29,7 +43,16 @@ class Login extends GenericForm {
     console.log("Error: " + error);
     console.log("Info: " + info);
   }
-
+/**
+  * Recibe como parametros los valores al enviar
+  * el formualario
+  * @method onSubmit
+  * @const values Son los valores del formulario
+  * @function loginUser:
+  * Es una accion que comunica con la api y realiza
+  * una autenticacion de redes para finalmente permitir el acceso si el registro
+  * existe.
+  */
   onSubmit(values) {
     this.props.loginUser(values, params => {
       this.props.load_user(params, data =>{
@@ -44,6 +67,12 @@ class Login extends GenericForm {
     });
   }
 
+ /**
+  * Realiza el renderizado de la aplicacion 
+  * en base a la informacion anterior
+  * @returns La cadena HTML que sera mostrada al usuario
+  * @method render
+  */
   render() {
     const { handleSubmit } = this.props;
     return (
@@ -97,6 +126,13 @@ class Login extends GenericForm {
   }
 }
 
+/**
+* Recibe como parametros los valores al enviar
+* el formulario y valida los campos regresando 
+* un error en caso de que esten incorrectos
+* @method validate
+* @param values Son el resultado de los formularios
+*/
 function validate(values) {
   const errors = {};
 
@@ -119,7 +155,11 @@ function mapStateToProps(state) {
       user: state.user
   };
 }
-
+/**
+* Conecta la clase con:
+* @function validate
+* @function loginUser
+*/
 export default reduxForm({
   form: "LoginForm",
   validate

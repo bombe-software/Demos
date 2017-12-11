@@ -1,7 +1,21 @@
+//NPM packages
 import React, {Component} from 'react';
 
+/**
+* @class Ayuda
+* @author MedinaVilla <net_medina@hotmail.com>
+* @author Someone <none>
+* @version  1.0 <11/12/17>
+* @description: 
+* El objetivo de la clase es brindar informacion a todos los usuario ya sea con o sin registro, acerca del
+* funcionamiento del sistema y una breve explicacion como funciona cada modulo del mismo.
+*/
 class Ayuda extends Component{
 
+/**
+   * Inicializa el state en donde se guarda el modulo(item) seleccionado por el usuario.
+   * @constructor
+   */
  constructor(props) {
     super(props);
     this.state = { type: 'InicioR'};
@@ -12,6 +26,11 @@ class Ayuda extends Component{
     this.updateEstad = this.updateEstad.bind(this);
     this.update = this.update.bind(this);
   }
+  /**
+  * Realiza el renderizado del modulo de Inicio y Registro
+  * @returns Codigo HTML del modulo InicioR.
+  * @method renderInicioR
+  */
   renderInicioR() {
     return (
       <div>
@@ -34,7 +53,11 @@ class Ayuda extends Component{
       </div>
     );
   }
-
+  /**
+    * Realiza el renderizado del modulo de Peticion
+    * @returns Codigo HTML del modulo Peticion.
+    * @method renderPeticion
+    */
     renderPeticion() {
     return (
       <div>
@@ -51,7 +74,11 @@ class Ayuda extends Component{
       </div>
     );
   }
-
+  /**
+  * Realiza el renderizado del modulo de Informacion de Usuario
+  * @returns Codigo HTML del modulo InfoUsu.
+  * @method renderInicioR
+  */
     renderInfoUsu() {
     return (
       <div>
@@ -68,7 +95,11 @@ class Ayuda extends Component{
       </div>
     );
   }
-
+  /**
+  * Realiza el renderizado del modulo de Moderador.
+  * @returns Codigo HTML del modulo InicioR.
+  * @method renderInicioR
+  */
     renderModer() {
       return (
         <div>
@@ -101,23 +132,47 @@ class Ayuda extends Component{
         </div>
       );
     }
-
+/**
+  * Cambia el modulo a 
+  * @method updateInicioR
+  */
   updateInicioR() {
     this.setState({ type: 'InicioR' });
   }
+  /**
+  * Cambia el modulo a Peticion que despliegua informacion del mismo.
+  * @method updatePeticion
+  */
   updatePeticion() {
     this.setState({ type: 'Peticion' });
   }
+  /**
+  * Cambia el modulo a InfoUsu que despliegua informacion del mismo.
+  * @method updateInfoUsu
+  */
   updateInfoUsu() {
     this.setState({ type: 'InfoUsu' });
   }
+  /**
+  * Cambia el modulo a Moder que despliegua informacion del mismo.
+  * @method updateModer
+  */
   updateModer() {
     this.setState({ type: 'Moder' });
   }
+  /**
+  * Cambia el modulo a Estad que despliegua informacion del mismo.
+  * @method updateEstad
+  */
    updateEstad() {
     this.setState({ type: 'Estad' });
   }
-
+  /**
+  * Dependiendo de la opcion seleccionada, ejecutara el update correspondiente para renderizar 
+  * el nuevo componente.
+  * @method update
+  * @const type Guarda el valor de la opcion o modulo seleccionado. 
+  */
   update() {
     let type = this.state.type;
     if (type == "InicioR") {
@@ -166,6 +221,12 @@ class Ayuda extends Component{
     console.log("Info: " + info);
   }
 
+/**
+  * Realiza el renderizado de la aplicacion 
+  * en base a la informacion anterior
+  * @returns La cadena HTML que sera mostrada al usuario
+  * @method render
+  */
   render() {
     return (
       <div>

@@ -1,6 +1,11 @@
+//NPM package
 import React, { Component } from "react";
 
-
+  /**
+  @const NotFound Contiene codigo html que se desplegara en caso de que la pagina
+  = a la que este intentando ingresar el usuario, ya sea inexistente, o no tenga
+  * permisos para verla.
+  */
 
 const NotFound = () => (
 	<div className="hero is-primary is-fullheight">

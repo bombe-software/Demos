@@ -5,7 +5,22 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { update_user } from "../../actions";
 
+/**
+* @class ConfigForm
+* @author MedinaVilla <net_medina@hotmail.com>
+* @author Someone <none>
+* @version  1.0 <11/12/17>
+* @description: 
+* El objetivo de la clase es mostrar toda la informacion relacionada con el usuario y 
+* dar la opcion que pueda cambiar algun dato.
+*/
 class ConfigForm extends GenericForm {
+  /**
+   * Inicializa el state en donde se desplegara el mensaje
+   * en caso de que el codigo de activacion no concida con
+   * la enviada.
+   * @constructor
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -17,32 +32,65 @@ class ConfigForm extends GenericForm {
     this.updateChivo = this.updateChivo.bind(this);
     this.updateErizo = this.updateErizo.bind(this);
   }
-
+/**
+  * Cambia el avatar actualmente seleccionado a Jaiba.jpg
+  * @method updateJaiba
+  * @const state.avatar Hace referencia al avatar actualmente seleccionado
+  * @const state.imgAvatar Hace referencia a las clases(css) que tiene cada imagen
+  */
   updateJaiba(){
     this.setState({
       avatar: "jaiba",
       imgAvatar: ['selected','none','none','none']
      })
   }
+  /**
+  * Cambia el avatar actualmente seleccionado a Anguila.jpg
+  * @method updateAnguila
+  * @const state.avatar Hace referencia al avatar actualmente seleccionado
+  * @const state.imgAvatar Hace referencia a las clases(css) que tiene cada imagen
+  */
   updateAnguila(){
     this.setState({
       avatar: "anguila",
       imgAvatar: ['none','selected','none','none']
      })
   }
+   /**
+  * Cambia el avatar actualmente seleccionado a Chivo.jpg
+  * @method updateChivo
+  * @const state.avatar Hace referencia al avatar actualmente seleccionado
+  * @const state.imgAvatar Hace referencia a las clases(css) que tiene cada imagen
+  */
   updateChivo(){
     this.setState({
       avatar: "chivo",
       imgAvatar: ['none','none','selected','none']
      })
   }
+  /**
+  * Cambia el avatar actualmente seleccionado a Erizo.jpg
+  * @method updateErizo
+  * @const state.avatar Hace referencia al avatar actualmente seleccionado
+  * @const state.imgAvatar Hace referencia a las clases(css) que tiene cada imagen
+  */
   updateErizo(){
     this.setState({
       avatar: "bussines",
       imgAvatar: ['none','none','none','selected']
      })
   }
-
+/**
+  * Recibe como parametros los valores al enviar
+  * el formualario
+  * @method onSubmit
+  * @const avatar Es el avatar seleccionado por el usuario
+  * @const user Es el identificador del usuario
+  * @const values Son los valores del formulario
+  * @function update_user:
+  * Es una accion que comunica con la api y realiza
+  * los cambios que haya hecho el usuario en la base de datos.
+  */
   onSubmit(values) {
     let { avatar } =  this.state;
     let { user } =  this.props;
@@ -63,7 +111,12 @@ class ConfigForm extends GenericForm {
     console.log("Error: " + error);
     console.log("Info: " + info);
   }
-
+/**
+  * Realiza el renderizado de la aplicacion 
+  * en base a la informacion anterior
+  * @returns La cadena HTML que sera mostrada al usuario
+  * @method render
+  */
   render() {
     const { handleSubmit } = this.props;
     return(
@@ -120,7 +173,13 @@ class ConfigForm extends GenericForm {
     );
   }
 }
-
+/**
+* Recibe como parametros los valores al enviar
+* el formulario y valida los campos regresando 
+* un error en caso de que esten incorrectos
+* @method validate
+* @param values Son el resultado de los formualarios
+*/
 function validate(values) {
   const errors = {};
 
@@ -150,10 +209,13 @@ function validate(values) {
     errors.Rpassword = "Asegurese que las contraseñas coincidan";
   }
 
-
   return errors;
 }
-
+/**
+* Conecta la clase con:
+* @function validate
+* @function update_user
+*/
 export default reduxForm({
   validate,
   form: "ConfigForm"

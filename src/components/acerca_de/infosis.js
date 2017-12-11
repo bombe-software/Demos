@@ -1,5 +1,13 @@
 import React, {Component} from 'react';
 
+/**
+* @class Infosis
+* @author MedinaVilla <net_medina@hotmail.com>
+* @author Someone <none>
+* @version  1.0 <11/12/17>
+* @description: 
+* El objetivo de la clase es brindar informacion al usuario acerca del equipo desarrollador del sistema.
+*/
 class Infosis extends Component{
 
   /**
@@ -15,6 +23,11 @@ class Infosis extends Component{
     console.log("Info: " + info);
   }
 	  
+/**
+  * Realiza el renderizado de la aplicacion
+  * @returns La cadena HTML que sera mostrada al usuario
+  * @method render
+  */
 	render(){
 		return(
 		<div> 

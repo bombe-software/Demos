@@ -6,8 +6,24 @@ import { connect } from "react-redux";
 import { confirmEmail } from "../actions";
 import WaveBackground from './generics/wave_background';
 
+/**
+* @class ConfirmEmail
+* @author MedinaVilla <net_medina@hotmail.com>
+* @author Someone <none>
+* @version  1.0 <11/12/17>
+* @description: 
+* El objetivo de la clase es recibir un codigo que el usuario va ingresar que previamente
+se le fue enviado a su correo para autentificarlo y si lo es, activara su cuenta para tener
+los servicios.
+*/
 class ConfirmEmail extends GenericForm{
 
+/**
+   * Inicializa el state en donde se desplegara el mensaje de error
+   * en caso de que el codigo de activacion no concida con
+   * la enviada.
+   * @constructor
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -15,6 +31,16 @@ class ConfirmEmail extends GenericForm{
     };
   }
 
+/**
+  * Recibe como parametros los valores al enviar
+  * el formualario
+  * @method onSubmit
+  * @const values Son los valores del formulario
+  * @function confirmEmail:
+  * Es una accion que comunica con la api y realiza
+  * una consulta para verificar si el codigo ingresado por el usuario
+  * concide con el que esta en el sistema y asi, activar la cuenta.
+  */
   onSubmit(values) {
     this.props.confirmEmail(values, response => {
       if(response.data.mensaje == "Todo bien"){
@@ -40,6 +66,12 @@ class ConfirmEmail extends GenericForm{
     console.log("Info: " + info);
   }
 
+ /**
+  * Realiza el renderizado de la aplicacion 
+  * en base a la informacion anterior
+  * @returns La cadena HTML que sera mostrada al usuario
+  * @method render
+  */
   render() {
     const { handleSubmit } = this.props;
     return (
@@ -87,7 +119,13 @@ class ConfirmEmail extends GenericForm{
     );
   }
 }
-
+/**
+* Recibe como parametros los valores al enviar
+* el formulario y valida los campos regresando 
+* un error en caso de que esten incorrectos
+* @method validate
+* @param values Son el resultado de los formualarios
+*/
 function validate(values) {
   const errors = {};
 
@@ -97,7 +135,11 @@ function validate(values) {
   
   return errors;
 }
-
+/**
+* Conecta la clase con:
+* @function validate
+* @function confirmEmail
+*/
 export default reduxForm({
   validate,
   form: "ConfirmEmailForm"

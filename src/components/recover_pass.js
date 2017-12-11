@@ -1,21 +1,32 @@
+//NPM packages
 import React, {Component} from 'react';
 import { Field, reduxForm } from "redux-form";
-import GenericForm from './generics/form';
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+//Actions
 import { recoverPass } from "../actions";
+//Components
 import WaveBackground from './generics/wave_background';
-
-
+import GenericForm from './generics/form';
 /**
 * @class SignUp
 * @author Vicroni <drasa_tec@hotmail.com>
 * @author Someone <none>
 * @version  1.0 <10/12/17>
 * @description: 
-* El objetivo de la clase es  
+* El objetivo de la clase es recibir el codigo brindado por el usuario que previamente fue
+*enviado a su correo.
 */
 class RecoverPass extends GenericForm{
+    /**
+  * Recibe como parametros los valores al enviar
+  * el formualario
+  * @method onSubmit
+  * @function recoverPass: 
+  * Es una accion que comunica con la api y realiza
+  * un desencriptado del codigo recibido y comparar si coincide con 
+  * la que tiene el sistema.
+  */
   onSubmit(values) {
     this.props.recoverPass(values, () => {
       console.log("callback recoverPass");
@@ -36,6 +47,12 @@ class RecoverPass extends GenericForm{
     console.log("Info: " + info);
   }
 
+ /**
+  * Realiza el renderizado de la aplicacion 
+  * en base a la informacion anterior
+  * @returns La cadena HTML que sera mostrada al usuario
+  * @method render
+  */
   render() {
     const { handleSubmit } = this.props;
     return (
@@ -79,7 +96,13 @@ class RecoverPass extends GenericForm{
     );
   }
 }
-
+/**
+* Recibe como parametros los valores al enviar
+* el formulario y valida los campos regresando 
+* un error en caso de que esten incorrectos.
+* @method validate
+* @param values Son el resultado de los formularios.
+*/
 function validate(values) {
   const errors = {};
 
@@ -97,7 +120,11 @@ function validate(values) {
   }
   return errors;
 }
-
+/**
+* Conecta la clase con:
+* @function validate
+* @function recoverPass
+*/
 export default reduxForm({
   validate,
   form: "RecoverPass"

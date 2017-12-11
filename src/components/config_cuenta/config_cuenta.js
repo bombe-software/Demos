@@ -2,8 +2,20 @@ import React, { Component } from "react";
 import ConfigForm from './config_form';
 import { connect } from "react-redux";
 
-
+/**
+* @class Perfil
+* @author MedinaVilla <net_medina@hotmail.com>
+* @author Someone <none>
+* @version  1.0 <11/12/17>
+* @description: 
+* El objetivo de la clase es mostrar toda la informacion relacionada con el usuario y 
+* dar la opcion que pueda cambiar algun dato.
+*/
 class Perfil extends Component {
+  /**
+   * Permite acceder al método constructor de la clase principal
+   * @constructor
+   */
   constructor(props) {
     super(props);
   }
@@ -21,6 +33,12 @@ class Perfil extends Component {
     console.log("Info: " + info);
   }
 
+/**
+  * Realiza el renderizado de la aplicacion 
+  * en base a la informacion anterior
+  * @returns La cadena HTML que sera mostrada al usuario
+  * @method render
+  */
   render() {
     let {user} = this.props;
     if(JSON.stringify(user) == '{}'){

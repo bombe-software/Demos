@@ -105,7 +105,7 @@ class SignUp extends GenericForm {
   }
 
   /**
-  * Recive como parametros los valores al enviar
+  * Recibe como parametros los valores al enviar
   * el formualario
   * @method onSubmit
   * @const avatar Es el avatar seleccionado por el usuario
@@ -250,7 +250,7 @@ class SignUp extends GenericForm {
 
 /**
 * Recibe como parametros los valores al enviar
-* el formualario y valida los campos regresando 
+* el formulario y valida los campos regresando 
 * un error en caso de que esten incorrectos
 * @method validate
 * @param values Son el resultado de los formualarios

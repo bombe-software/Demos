@@ -1,10 +1,24 @@
+//NPM packages
 import React, {Component} from 'react';
+//Components
 import Ayuda from './ayuda.js';
 import Infosis from './infosis.js';
 
-
+/**
+* @class AcercaDe
+* @author MedinaVilla <net_medina@hotmail.com>
+* @author Someone <none>
+* @version  1.0 <11/12/17>
+* @description: 
+* El objetivo de la clase es funcionar como interfaz para mostrar el modulo ayuda.js y mostrar informacion del
+* sistema
+*/
 class AcercaDe extends Component{
 
+/**
+   * Inicializa el state en donde se guarda item seleccionado por el usuario
+   * @constructor
+   */
  constructor(props) {
     super(props);
     this.state = { type: 'infosis'};
@@ -12,12 +26,21 @@ class AcercaDe extends Component{
     this.updateAyuda = this.updateAyuda.bind(this);
     this.update = this.update.bind(this);
   }
+/**
+  * Realiza el renderizado del componente Infosis
+  * @returns El componente Infosis que sera mostrada al usuario
+  * @method renderInfosis
+  */
   renderInfosis() {
     return (
         <Infosis />
     );
   }
-
+/**
+  * Realiza el renderizado del componente Ayuda
+  * @returns El componente Ayuda que sera mostrada al usuario
+  * @method renderAyuda
+  */
   renderAyuda() {
     return (
       <div>
@@ -26,13 +49,27 @@ class AcercaDe extends Component{
     );
   }
 
+/**
+  * Cambia el modulo a Infosis que despliegua informacion de los desarrolladores del sistema.
+  * @method updateInfosis
+  */
   updateInfosis() {
     this.setState({ type: 'infosis' });
   }
+  /**
+  * Cambia el modulo a Ayuda que despliega informacion del sistema.
+  * @method updateAyuda
+  */
   updateAyuda() {
     this.setState({ type: 'ayuda' });
   }
 
+/**
+  * Dependiendo de la opcion seleccionada, ejecutara el update correspondiente para renderizar 
+  * el nuevo modulo.
+  * @method update
+  * @const type Guarda el valor de la opcion(item) seleccionada 
+  */
   update() {
     let type = this.state.type;
     if (type == "infosis") {
@@ -63,6 +100,12 @@ class AcercaDe extends Component{
     console.log("Info: " + info);
   }
 
+/**
+  * Realiza el renderizado de la aplicacion 
+  * en base a la informacion anterior
+  * @returns La cadena HTML que sera mostrada al usuario
+  * @method render
+  */
   render() {
     return (
       <div className="section">

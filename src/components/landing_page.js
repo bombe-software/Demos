@@ -4,6 +4,15 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import RC2,  {Doughnut, Bar, Line, Pie} from 'react-chartjs-2';
 
+/**
+* @class LandingPage
+* @author MedinaVilla <net_medina@hotmail.com>
+* @author Someone <none>
+* @version  1.0 <11/12/17>
+* @description: 
+* Es la pagina principal del frontend del sistema. Mostrara todos las opciones que un usuario no registrado tiene acceso.
+* En caso de ser moderador, se le anexara una opcion mas.
+*/
 class LandingPage extends Component {
 
   renderSignUp(){
@@ -49,12 +58,21 @@ class LandingPage extends Component {
     console.log("Error: " + error);
     console.log("Info: " + info);
   }
-
+  /**
+  * Realiza el renderizado de la aplicacion 
+  * en base a la informacion anterior
+  * @const names Nombres de candidatos para las graficas
+  * @const categories Categorias para las graficas
+  * @const estados Estados para las graficas
+  * @const partidos Partidos politicos para las graficas
+  * @returns La cadena HTML que sera mostrada al usuario
+  * @method render
+  */
   render() {
 
     let names = [
       'Jesús Medina',
-      'Mariana Benítez',
+      'Abril Suarez',
       'Juan Pérez'
     ];
 
@@ -81,8 +99,6 @@ class LandingPage extends Component {
 
     return (
       <div>
-
-
       			<div className="hero is-medium is-dark">
       			<div className="hero-image img-1">
 

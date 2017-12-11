@@ -1,6 +1,18 @@
 import React, { Component } from "react";
 
+/**
+* @class Administrador
+* @author MedinaVilla <net_medina@hotmail.com>
+* @author Someone <none>
+* @version  1.0 <11/12/17>
+* @description: 
+* El objetivo de la clase es ...
+*/
 class Administrador extends Component {
+  /**
+   * Permite acceder al método constructor de la clase principal
+   * @constructor
+   */
   constructor(props) {
     super(props);
   }
@@ -17,6 +29,13 @@ class Administrador extends Component {
     console.log("Error: " + error);
     console.log("Info: " + info);
   }
+
+  /**
+  * Realiza el renderizado de la aplicacion 
+  * en base a la informacion anterior
+  * @returns La cadena HTML que sera mostrada al usuario
+  * @method render
+  */
   render() {
     return (
       <div>
