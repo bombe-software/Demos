@@ -10,10 +10,18 @@ class Soporte extends Component {
         super(props);
     }
 
-    componentDidCatch(error, info) {
-        console.log("Error: " + error);
-        console.log("Info: " + info);
-      }
+  /**
+  * Es una forma de capturar cualquier error en la clase 
+  * y que este no crashe el programa, ayuda con la depuracion
+  * de errores
+  * @method componentDidCatch
+  * @const info Es más informacion acerca del error
+  * @const error Es el titulo del error
+  */
+  componentDidCatch(error, info) {
+    console.log("Error: " + error);
+    console.log("Info: " + info);
+  }
 
 	render(){
         if(JSON.stringify(this.props.user) != '{}')
