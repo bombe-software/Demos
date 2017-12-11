@@ -17,6 +17,11 @@ class Login extends GenericForm {
     };
   }
 
+  componentDidCatch(error, info) {
+    console.log("Error: " + error);
+    console.log("Info: " + info);
+  }
+
   onSubmit(values) {
     this.props.loginUser(values, params => {
       this.props.load_user(params, data =>{

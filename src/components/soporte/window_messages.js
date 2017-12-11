@@ -5,11 +5,11 @@ class WindowMessages extends Component {
 		super(props);
 	}
 
-	renderLeftMessage(mensaje){
-		return(
+	renderLeftMessage(mensaje) {
+		return (
 			<div className="level">
 				<div className="level-left">
-				<div className="level-item">
+					<div className="level-item">
 						<div className="box mensaje mensaje-usuario">
 							{mensaje.mensaje}
 						</div>
@@ -18,16 +18,16 @@ class WindowMessages extends Component {
 				<div className="level-right">
 				</div>
 			</div>
-			);
+		);
 	}
 
-	renderRightMessage(mensaje){
-		return(
+	renderRightMessage(mensaje) {
+		return (
 			<div className="level">
 				<div className="level-left">
 				</div>
 				<div className="level-right">
-				<div className="level-item">
+					<div className="level-item">
 						<div className="box mensaje mensaje-admin">
 							{mensaje.mensaje}
 						</div>
@@ -37,31 +37,35 @@ class WindowMessages extends Component {
 		);
 	}
 
-	renderListMessages(mensajes){
-	    return _.map(mensajes, mensaje => {
-			if(mensaje.id_remitente!=this.props.id_local){
+	renderListMessages(mensajes) {
+		return _.map(mensajes, mensaje => {
+			if (mensaje.id_remitente != this.props.id_local) {
 				return (
 					<div key={mensaje.id_mensaje}>
 						{this.renderRightMessage(mensaje)}
 					</div>
 				);
-			}else{
+			} else {
 				return (
 					<div key={mensaje.id_mensaje}>
 						{this.renderLeftMessage(mensaje)}
 					</div>
 				);
 			}
-	    });
+		});
+	}
+	componentDidCatch(error, info) {
+		console.log("Error: " + error);
+		console.log("Info: " + info);
 	}
 
-	render(){
-		let {mensajes} = this.props;
-        return (
-            <div className="inbox">
+	render() {
+		let { mensajes } = this.props;
+		return (
+			<div className="inbox">
 				{this.renderListMessages(mensajes)}
-            </div>
-        )
+			</div>
+		)
 	}
 }
 

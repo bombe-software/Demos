@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
 class Footer extends Component {
+  componentDidCatch(error, info) {
+    console.log("Error: " + error);
+    console.log("Info: " + info);
+  }
+
   render(){
     return(
       <div>

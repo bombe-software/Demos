@@ -34,7 +34,7 @@ import Soporte from './components/soporte/soporte';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <div>
   <Provider store={createStoreWithMiddleware(reducers)}>
     <MuiThemeProvider>

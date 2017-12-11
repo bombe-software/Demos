@@ -42,6 +42,11 @@ class HistorialForm extends GenericForm {
     this.setState({open: false});
   };
 
+  componentDidCatch(error, info) {
+    console.log("Error: " + error);
+    console.log("Info: " + info);
+  }
+
   render() {
     const { handleSubmit, pristine, reset, submitting } = this.props;
 

@@ -10,6 +10,11 @@ class Soporte extends Component {
         super(props);
     }
 
+    componentDidCatch(error, info) {
+        console.log("Error: " + error);
+        console.log("Info: " + info);
+      }
+
 	render(){
         if(JSON.stringify(this.props.user) != '{}')
             if(this.props.user.id_tipo_usuario == '3')

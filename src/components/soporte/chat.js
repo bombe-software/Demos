@@ -46,6 +46,11 @@ class Chat extends Component {
         this.state.socket.emit('msg', { id_destinatario: id_externo });
     }
 
+    componentDidCatch(error, info) {
+        console.log("Error: " + error);
+        console.log("Info: " + info);
+      }
+
 	render(){
         let {id_local, mensajes} = this.props;
         let {id_externo} = this.state;

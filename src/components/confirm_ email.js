@@ -27,6 +27,11 @@ class ConfirmEmail extends GenericForm{
     });
   }
 
+  componentDidCatch(error, info) {
+    console.log("Error: " + error);
+    console.log("Info: " + info);
+  }
+
   render() {
     const { handleSubmit } = this.props;
     return (

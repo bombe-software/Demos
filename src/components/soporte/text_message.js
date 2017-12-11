@@ -13,10 +13,15 @@ class TextMessage extends GenericForm {
 
     onSubmit(values) {
         let { id_local, id_externo, handleReloadMessages } = this.props;
-        this.props.insertMensajes(id_local, id_externo, values.mensaje, () =>{
+        this.props.insertMensajes(id_local, id_externo, values.mensaje, () => {
             handleReloadMessages();
         });
-       
+
+    }
+
+    componentDidCatch(error, info) {
+        console.log("Error: " + error);
+        console.log("Info: " + info);
     }
 
 
@@ -28,11 +33,11 @@ class TextMessage extends GenericForm {
                 <div className="level">
                     <div className="level-item">
                         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-                        <Field name="mensaje" component={this.renderTextField} label={""} />
-                        <button className="button is-primary" id="inbox">
-                            Submit
+                            <Field name="mensaje" component={this.renderTextField} label={""} />
+                            <button className="button is-primary" id="inbox">
+                                Submit
                         </button>
-                    </form>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -42,8 +47,8 @@ class TextMessage extends GenericForm {
 function validate(values) {
     const errors = {};
 
-    if(!values.mensaje){
-        errors.mensaje = " " ;  
+    if (!values.mensaje) {
+        errors.mensaje = " ";
 
     }
 

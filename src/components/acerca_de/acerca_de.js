@@ -26,7 +26,6 @@ class AcercaDe extends Component{
     );
   }
 
-
   updateInfosis() {
     this.setState({ type: 'infosis' });
   }
@@ -51,7 +50,10 @@ class AcercaDe extends Component{
     }
   }
 
-
+  componentDidCatch(error, info) {
+    console.log("Error: " + error);
+    console.log("Info: " + info);
+  }
 
   render() {
     return (

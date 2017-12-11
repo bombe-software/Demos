@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 class NeedLogin extends Component {
 	constructor(props) {
 		super(props);
-  	}
+      }
+      
+      componentDidCatch(error, info) {
+        console.log("Error: " + error);
+        console.log("Info: " + info);
+      }
 
 	render(){
         return (

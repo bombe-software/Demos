@@ -97,6 +97,11 @@ class PoliticoForm extends GenericForm {
       </Field>
     );
   }
+ 
+  componentDidCatch(error, info) {
+    console.log("Error: " + error);
+    console.log("Info: " + info);
+  }
 
   render() {
     const { handleSubmit, pristine, reset, submitting } = this.props;

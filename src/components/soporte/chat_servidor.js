@@ -31,6 +31,11 @@ class ChatServidor extends Component {
     updateIdExterno(id){
         this.setState({ id_externo: id });
     }
+
+    componentDidCatch(error, info) {
+        console.log("Error: " + error);
+        console.log("Info: " + info);
+      }
       
     render(){
         return (

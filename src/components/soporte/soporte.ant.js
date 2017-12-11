@@ -85,6 +85,11 @@ class Soporte extends GenericForm {
 		
 	}
 
+	componentDidCatch(error, info) {
+		console.log("Error: " + error);
+		console.log("Info: " + info);
+	  }
+
 	render(){
 		const { handleSubmit } = this.props;
 	  	if(JSON.stringify(this.props.user) == '{}'){

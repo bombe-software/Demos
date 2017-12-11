@@ -8,6 +8,11 @@ class Perfil extends Component {
     super(props);
   }
 
+  componentDidCatch(error, info) {
+    console.log("Error: " + error);
+    console.log("Info: " + info);
+  }
+
   render() {
     let {user} = this.props;
     if(JSON.stringify(user) == '{}'){

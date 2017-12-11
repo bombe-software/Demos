@@ -50,6 +50,11 @@ class ConfigForm extends GenericForm {
       location.reload();
     });
   }
+  
+  componentDidCatch(error, info) {
+    console.log("Error: " + error);
+    console.log("Info: " + info);
+  }
 
   render() {
     const { handleSubmit } = this.props;

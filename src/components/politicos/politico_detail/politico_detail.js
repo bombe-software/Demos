@@ -96,6 +96,11 @@ class PoliticoDetail extends Component {
         }
     }
 
+    componentDidCatch(error, info) {
+        console.log("Error: " + error);
+        console.log("Info: " + info);
+      }
+
     render() {
         return (
             <div>
