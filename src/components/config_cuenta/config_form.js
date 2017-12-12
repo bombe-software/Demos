@@ -1,9 +1,14 @@
+//NPM packages
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
-import GenericForm from './../generics/form';
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+//Actions
 import { update_user } from "../../actions";
+//Components
+import GenericForm from './../generics/form';
+
+
 
 /**
 * @class ConfigForm

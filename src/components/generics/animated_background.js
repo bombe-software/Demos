@@ -1,5 +1,14 @@
+//NPM packages
 import React, { Component } from 'react';
 
+/**
+* @class AnimatedBackground
+* @author MedinaVilla <net_medina@hotmail.com>
+* @author Someone <none>
+* @version  1.0 <11/12/17>
+* @description: 
+* Es el fondo animado que aparecen en la mayoria de los modulos.
+*/
 class AnimatedBackground extends Component{
 
   /**
@@ -14,7 +23,12 @@ class AnimatedBackground extends Component{
     console.log("Error: " + error);
     console.log("Info: " + info);
   }
-  
+  /**
+  * Realiza el renderizado de la aplicacion 
+  * en base a la informacion anterior
+  * @returns La cadena HTML que sera mostrada al usuario(animated backgroubd)
+  * @method render
+  */
   render(){
     return (
       <div className="ocean"><div className="animated-background"></div></div>

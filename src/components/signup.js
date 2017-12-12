@@ -17,7 +17,7 @@ import WaveBackground from './generics/wave_background';
 * @author Someone <none>
 * @version  1.0 <10/12/17>
 * @description: 
-* El objetivo de la clase es  
+* El objetivo de la clase recibir datos para realigar un registro a la base de datos.
 */
 class SignUp extends GenericForm {
 

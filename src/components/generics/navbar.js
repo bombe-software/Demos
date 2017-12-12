@@ -1,8 +1,22 @@
+//NPM packages
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+/**
+* @class NavBar
+* @author MedinaVilla <net_medina@hotmail.com>
+* @author Someone <none>
+* @version  1.0 <11/12/17>
+* @description: 
+* Es la navbar en la que el usuario en la que podra utilizar para navegar a traves del sistema. 
+*/
 class Navbar extends Component {
+  /**
+   * Inicializa el state en donde se colocan
+   *  ..............................
+   * @constructor
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -12,19 +26,28 @@ class Navbar extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.renderNavEnd = this.renderNavEnd.bind(this);
   }
+  /** 
+   * @event  Reedirecciona a un link deseado. 
+  */
 
   handleClick() {
     this.setState(prevState => ({
       isToggleOn: !prevState.isToggleOn
     }));
   }
-
+ /** 
+   * @event  Reedirecciona a un link deseado dependiendo del usuario. 
+  */
   handleClickUser(){
     this.setState(prevState => ({
       isUserSelected: !prevState.isUserSelected
     }));
   }
-
+  /**
+  * Realiza el renderizado del apartado final de la navbar en caso de no estar logueado.
+  * @returns Cadena HTML de informacion antes mencionada.
+  * @method renderNavEnd
+  */
   renderNavEnd(){
     if(JSON.stringify(this.props.user) == '{}'){
       return(
@@ -63,6 +86,11 @@ class Navbar extends Component {
       );
     }
   }
+  /**
+  * Realiza el renderizado de la funcion moderador en caso de que el usuario sea un moderador
+  * @returns Cadena HTML de la funcion moderador(tab)
+  * @method renderTextField
+  */
   renderModerador(){
     if(JSON.stringify(this.props.user) != '{}'){
       if(this.props.user.id_tipo_usuario == '2'){
@@ -87,7 +115,12 @@ class Navbar extends Component {
     console.log("Error: " + error);
     console.log("Info: " + info);
   }
-
+  /**
+  * Realiza el renderizado de la aplicacion 
+  * en base a la informacion anterior
+  * @returns La cadena HTML de la navbar
+  * @method render
+  */
   render() {
     return (
       //Logo de la navbar

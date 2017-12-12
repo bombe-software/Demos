@@ -1,5 +1,13 @@
+//NPM packages
 import React, { Component } from "react";
-
+/**
+* @class ShowPassword
+* @author MedinaVilla <net_medina@hotmail.com>
+* @author Someone <none>
+* @version  1.0 <11/12/17>
+* @description: 
+* Tiene como objetivo dar la funcionalidad a los PasswordField que se pueda mostrar y ocultar.
+*/
 class ShowPassword extends Component{
   constructor(props){
     super(props);
@@ -10,7 +18,9 @@ class ShowPassword extends Component{
     this.showHide = this.showHide.bind(this);
     this.passwordStrength = this.passwordStrength.bind(this);
   }
-  
+  /** 
+   * @event  Muestra y oculta el password del formulario.
+  */
   showHide(e){
     e.preventDefault();
     e.stopPropagation();
@@ -18,7 +28,9 @@ class ShowPassword extends Component{
       type: this.state.type === 'input' ? 'password' : 'input'
     })  
   }
-  
+  /** 
+   * @event  ....
+  */
   passwordStrength(e){
     if(e.target.value === ''){
       this.setState({
@@ -46,7 +58,12 @@ class ShowPassword extends Component{
     console.log("Error: " + error);
     console.log("Info: " + info);
   }
-  
+  /**
+  * Realiza el renderizado de la aplicacion 
+  * en base a la informacion anterior
+  * @returns La cadena HTML del passwordField con la funcionalidad.
+  * @method render
+  */ 
   render(){
     return(
       <label className="password">Password

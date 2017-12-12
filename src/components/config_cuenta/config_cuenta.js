@@ -1,6 +1,9 @@
+//NPM packages
 import React, { Component } from "react";
-import ConfigForm from './config_form';
 import { connect } from "react-redux";
+//Components
+import ConfigForm from './config_form';
+
 
 /**
 * @class Perfil
