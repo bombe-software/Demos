@@ -1,6 +1,15 @@
+//NPM packages
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
+/**
+* @class Footer
+* @author MedinaVilla <net_medina@hotmail.com>
+* @author Someone <none>
+* @version  1.0 <11/12/17>
+* @description: 
+* Es el pie de pagina que se mostraran en todos los modulos del sistema.
+*/
 class Footer extends Component {
   /**
   * Es una forma de capturar cualquier error en la clase 
@@ -14,7 +23,12 @@ class Footer extends Component {
     console.log("Error: " + error);
     console.log("Info: " + info);
   }
-
+  /**
+  * Realiza el renderizado de la aplicacion 
+  * en base a la informacion anterior
+  * @returns La cadena HTML que sera mostrada al usuario(footer)
+  * @method render
+  */
   render(){
     return(
       <div>

@@ -1,6 +1,16 @@
+//NPM packages
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
+/**
+* @class NeedLogin
+* @author MedinaVilla <net_medina@hotmail.com>
+* @author Someone <none>
+* @version  1.0 <11/12/17>
+* @description: 
+* Tiene como objetivo de mostrar un apartado en donde avisara al usuario en 
+* el modulo login si necesita registrarse. 
+*/
 class NeedLogin extends Component {
 	constructor(props) {
 		super(props);
@@ -18,7 +28,12 @@ class NeedLogin extends Component {
     console.log("Error: " + error);
     console.log("Info: " + info);
   }
-
+ /**
+  * Realiza el renderizado de la aplicacion 
+  * en base a la informacion anterior
+  * @returns La cadena HTML del componente.
+  * @method render
+  */
 	render(){
         return (
             <div className="hero is-primary is-fullheight">

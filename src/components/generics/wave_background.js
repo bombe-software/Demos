@@ -1,5 +1,13 @@
+//NPM packages
 import React, { Component } from 'react';
-
+/**
+* @class WaveBackground
+* @author MedinaVilla <net_medina@hotmail.com>
+* @author Someone <none>
+* @version  1.0 <11/12/17>
+* @description: 
+* Muestra el efecto de Wave de fondo en las mayoria de los modulos del sistema.
+*/
 class WaveBackground extends Component{
 
   /**
@@ -14,7 +22,12 @@ class WaveBackground extends Component{
     console.log("Error: " + error);
     console.log("Info: " + info);
   }
-  
+  /**
+  * Realiza el renderizado de la aplicacion 
+  * en base a la informacion anterior
+  * @returns La cadena HTML que sera mostrada al usuario(background wave)
+  * @method render
+  */
   render(){
     return (
       <div className="ocean"><div className="wave"></div>
