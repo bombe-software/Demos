@@ -19,9 +19,24 @@ import AnimatedBackground from '../../generics/animated_background';
 import { RadioButtonGroup } from 'redux-form-material-ui'
 
 
-
+/**
+* @class PoliticoForm
+* @author HGWells07 <carlitose07@gmail.com>
+* @version  1.0 <11/12/17>
+* @description:
+* El objetivo de la clase es la creación de un formulario exclusivo para
+* el registro de un nuevo político en el sistema
+*/
 class PoliticoForm extends GenericForm {
 
+  /**
+   * Inicializa el state en donde se desplegara el mensaje de error
+   * en caso de que el email y contrasena no concida o no exista el registro.
+   * De igual forma inicializa un booleano que indica si el mensaje de
+   * registro realizado está desplegado y también la región seleccionada
+   * por el usuario para registrar al político.
+   * @constructor
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -32,11 +47,25 @@ class PoliticoForm extends GenericForm {
     this.renderRegionExist = this.renderRegionExist.bind(this);
   }
 
+  /**
+  * Carga los datos de estados y partidos que se envían asíncronamente al
+  * renderizado y los agrega a la página una vez cargado el componente.
+  * @method componentDidMount Sobreescritura del método de React, se ejecuta
+  * después de haber renderizado el componente
+  */
   componentDidMount() {
     this.props.fetchEstados();
     this.props.fetchPartidos();
   }
 
+  /**
+  * Controla el evento onSubmit del formulario de registro de político y
+  * hace log de la respuesta en consola.
+  * @method onSubmit
+  * @const values Son los datos enviados desde la forma de registro
+  * Es una acción que comunica con la API, donde se envian los datos
+  * para su registro.
+  */
   onSubmit(values) {
     this.handleOpen();
     this.props.insertPolitico(values, this.props.user.id_usuario ,response =>{
@@ -44,14 +73,27 @@ class PoliticoForm extends GenericForm {
     });
   }
 
+  /**
+  * Modifica el estado del aviso como abierto
+  * @method handleOpen
+  */
   handleOpen = () => {
     this.setState({open: true});
   };
 
+  /**
+  * Modifica el estado del aviso como cerrado
+  * @method handleClose
+  */
   handleClose = () => {
     this.setState({open: false});
   };
 
+  /**
+   * Renderiza en un menú todos los partidos políticos.
+   * @returns La cadena de etiquetado HTML del menú de partidos políticos
+   * @method renderPartidos
+   */
   renderPartidos(partidos) {
     return _.map(partidos, partido => {
       return (
@@ -59,6 +101,12 @@ class PoliticoForm extends GenericForm {
       );
     });
   }
+
+  /**
+   * Renderiza en un menú todos los partidos políticos.
+   * @returns La cadena de etiquetado HTML del menú de partidos políticos
+   * @method renderPartidos
+   */
   setSelectedRegion(region) {
     region = _.values(region);
     region.splice(region.length - 1, 1);
@@ -97,9 +145,9 @@ class PoliticoForm extends GenericForm {
       </Field>
     );
   }
- 
+
   /**
-  * Es una forma de capturar cualquier error en la clase 
+  * Es una forma de capturar cualquier error en la clase
   * y que este no crashe el programa, ayuda con la depuracion
   * de errores
   * @method componentDidCatch
@@ -111,6 +159,12 @@ class PoliticoForm extends GenericForm {
     console.log("Info: " + info);
   }
 
+  /**
+   * Realiza el renderizado de la aplicacion
+   * en base a la informacion anterior
+   * @returns La cadena de etiquetado HTML que sera mostrada al usuario
+   * @method render
+   */
   render() {
     const { handleSubmit, pristine, reset, submitting } = this.props;
     let estados = _.groupBy(_.values(this.props.estados), 'zona');
@@ -159,7 +213,7 @@ class PoliticoForm extends GenericForm {
             </div>
           </div>
 
-        
+
           <div className="level">
             <div className="level-item">
               <Field name="tipo" component={this.renderRadioGroup}  >

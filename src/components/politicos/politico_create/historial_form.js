@@ -15,8 +15,24 @@ import RaisedButton from 'material-ui/RaisedButton';
 import AnimatedBackground from '../../generics/animated_background';
 
 
+/**
+* @class HistorialForm
+* @author HGWells07 <carlitose07@gmail.com>
+* @version  1.0 <11/12/17>
+* @description:
+* El objetivo de la clase es la creación de un formulario exclusivo para
+* el registro de enventos en el histrial de un político
+*/
 class HistorialForm extends GenericForm {
 
+  /**
+   * Inicializa el state en donde se desplegara el mensaje de error
+   * en caso de que el email y contrasena no concida o no exista el registro.
+   * De igual forma tiene la información del político del cual se está
+   * editando el historial así como de un booleano que indica si el aviso
+   * de aprobación se encuentra abierto o cerrado.
+   * @constructor
+   */
   constructor(props) {
     super(props);
     let { id } = this.props.match.params;
@@ -27,6 +43,14 @@ class HistorialForm extends GenericForm {
     };
   }
 
+  /**
+  * Controla el evento onSubmit del formulario de registro de historial y
+  * hace log de la respuesta en consola.
+  * @method onSubmit
+  * @const values Son los datos enviados desde la forma de registro
+  * Es una acción que comunica con la API, donde se envian los datos
+  * para su registro.
+  */
   onSubmit(values) {
     this.handleOpen();
     this.props.insertHistorial(values, this.state.id_politico, this.props.user.id_usuario, response =>{
@@ -34,18 +58,26 @@ class HistorialForm extends GenericForm {
     });
   }
 
+  /**
+  * Modifica el estado del aviso como abierto
+  * @method handleOpen
+  */
   handleOpen = () => {
     this.setState({open: true});
   };
 
+  /**
+  * Modifica el estado del aviso como cerrado
+  * @method handleClose
+  */
   handleClose = () => {
     this.setState({open: false});
   };
 
   /**
-  * Es una forma de capturar cualquier error en la clase 
-  * y que este no crashe el programa, ayuda con la depuracion
-  * de errores
+  * Es una forma de capturar cualquier error en la clase
+  * y que este no detenga la ejecución del programa. Ayuda
+  * con la depuracion de errores
   * @method componentDidCatch
   * @const info Es más informacion acerca del error
   * @const error Es el titulo del error
@@ -54,6 +86,13 @@ class HistorialForm extends GenericForm {
     console.log("Error: " + error);
     console.log("Info: " + info);
   }
+
+  /**
+   * Realiza el renderizado de la aplicacion
+   * en base a la informacion anterior
+   * @returns La cadena de etiquetado HTML que sera mostrada al usuario
+   * @method render
+   */
   render() {
     const { handleSubmit, pristine, reset, submitting } = this.props;
 
@@ -114,6 +153,13 @@ class HistorialForm extends GenericForm {
   }
 }
 
+/**
+* Recibe como parametros los valores al enviar
+* el formulario y valida los campos regresando
+* un error en caso de que esten incorrectos.
+* @method validate
+* @param values Son los valores ingresados a los formularios
+*/
 function validate(values) {
   const errors = {};
 
@@ -154,12 +200,23 @@ errors.link = "Escriba el link de referenica";
   return errors;
 }
 
+/**
+* Realiza una copia del estado actual de la aplicación y lo distribuye
+* a la propiedad props del componente.
+* @function mapStateToProps es la sobreescritura de la función.
+* @param state Es el estado actual de la aplicación en general (Redux)
+*/
 function mapStateToProps(state) {
   return {
     user: state.user,
   };
 }
 
+/**
+* Conecta la clase con:
+* @function validate
+* @function insertHistorial
+*/
 export default reduxForm({
   form: 'HistorialForm',
   validate
